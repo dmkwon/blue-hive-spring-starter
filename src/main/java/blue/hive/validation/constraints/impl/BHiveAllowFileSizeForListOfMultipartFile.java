@@ -11,7 +11,7 @@ import blue.hive.validation.constraints.BHiveAllowFileSize;
 /**
  * BHiveAllowFileSize Validator
  * 
- * @author DongMan Kwon <dmkwon@intellicode.co.kr>
+ * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  */
 public class BHiveAllowFileSizeForListOfMultipartFile extends BHiveConstraintValidator<BHiveAllowFileSize, ArrayList<MultipartFile>> {
 

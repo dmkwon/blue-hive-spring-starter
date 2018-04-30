@@ -21,7 +21,7 @@ import blue.hive.util.BHiveDateUtil;
  * https://dzone.com/articles/how-serialize-javautildate
  * http://stackoverflow.com/questions/3269459/how-to-serialize-joda-datetime-with-jackson-json-processer
  * 
- * @author DongMan Kwon <dmkwon@intellicode.co.kr>
+ * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  */
 public class BHiveLocalDateTimeDeserialiser extends LocalDateTimeDeserializer {
 	private static final long serialVersionUID = -565820334558847688L;

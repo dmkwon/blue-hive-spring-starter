@@ -8,7 +8,7 @@ import org.springframework.validation.Errors;
  *
  * BindingResult Error로 예외 발생을 위한 클래스
  *
- * @author DongMan Kwon <dmkwon@intellicode.co.kr>
+ * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  */
 public class BHiveValidationException extends BHiveRuntimeException {
 

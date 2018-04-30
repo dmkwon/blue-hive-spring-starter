@@ -3,7 +3,7 @@ package blue.hive.exception;
 /**
  * 입력형식의 Format이 올바르지 않은 경우의 예외
  * 
- * @author DongMan Kwon <dmkwon@intellicode.co.kr>
+ * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  */
 public class BHiveInvalidFormatException extends BHiveRuntimeException {
 	

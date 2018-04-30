@@ -9,7 +9,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 /**
  * <code>org.springframework.validation.ObjectError</code>의 응답용 Wrapper DT
  *
- * @author DongMan Kwon <dmkwon@intellicode.co.kr>
+ * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  */
 @JsonPropertyOrder({"objectName", "code", "message"})
 public class BHiveObjectError {

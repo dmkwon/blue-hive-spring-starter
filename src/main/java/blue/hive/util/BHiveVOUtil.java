@@ -21,7 +21,7 @@ import blue.hive.util.anyframe.StringUtil;
 /**
  * VO관련 Util 클래스
  *
- * @author DongMan Kwon <dmkwon@intellicode.co.kr>
+ * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  */
 public class BHiveVOUtil {
 

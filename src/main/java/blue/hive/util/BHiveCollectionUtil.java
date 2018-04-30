@@ -11,7 +11,7 @@ import java.util.Map.Entry;
 /**
  * Collection관련 Util
  * 
- * @author DongMan Kwon <dmkwon@intellicode.co.kr>
+ * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  */
 public class BHiveCollectionUtil {
 	

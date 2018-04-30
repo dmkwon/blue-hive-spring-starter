@@ -12,7 +12,7 @@ import com.fasterxml.jackson.databind.SerializerProvider;
  * 
  * Html에 String을 내려줄때 XSS 처리 (현재 미사용) 
  * 
- * @author DongMan Kwon <dmkwon@intellicode.co.kr>
+ * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  */
 public class BHiveJsonHtmlXssSerializer extends JsonSerializer<String> {
 

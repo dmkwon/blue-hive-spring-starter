@@ -17,7 +17,7 @@ import blue.hive.util.anyframe.StringUtil;
 /**
  * Joda DateTime, Java Date 관련 유틸
  *
- * @author DongMan Kwon <dmkwon@intellicode.co.kr>
+ * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  */
 public class BHiveDateUtil {
 
@@ -25,7 +25,6 @@ public class BHiveDateUtil {
 	 * 문자열을 Joda DateTime으로 변환
 	 * @param dateString yyyy/MM/dd, yyyy-MM-dd, yyyyMMdd, yyyyMMddHHmmss, yyyy-MM-dd HH:mm:ss, yyyy-MM-dd'T'HH:mm:ss.SSSZ
 	 * @return Joda DateTime
-	 * @throws FmsInvalidFormatException 요청된 DateTime 문자열의 형식이 올바르지 않은 경우 발생
 	 */
 	public static DateTime parseToDateTime(String dateString) {
 		return parseToDateTime(dateString, true);
@@ -36,7 +35,7 @@ public class BHiveDateUtil {
 	 * @param dateString yyyy-MM-dd, yyyy/MM/dd, yyyyMMdd, yyyyMMddHHmmss, yyyy-MM-dd HH:mm:ss, yyyy-MM-dd'T'HH:mm:ss.SSSZ
 	 * @param throwException 처리중 예외가 발생하면 throw 할 것인지 여부
 	 * @return Joda DateTime (throwException이 false이면 변환실패시 null반환)
-	 * @throws FmsInvalidFormatException 요청된 DateTime 문자열의 형식이 올바르지 않은 경우 발생 (throwException이 true일때만...)
+	 * @throws BHiveInvalidFormatException 요청된 DateTime 문자열의 형식이 올바르지 않은 경우 발생 (throwException이 true일때만...)
 	 */
 	public static DateTime parseToDateTime(String dateString, Boolean throwException) {
 		if(StringUtil.isEmptyTrimmed(dateString)) {
@@ -71,7 +70,6 @@ public class BHiveDateUtil {
 	 * 문자열을 Joda LocalDateTime으로 변환
 	 * @param dateString yyyy-MM-dd, yyyy/MM/dd, yyyyMMdd, yyyyMMddHHmmss, yyyy-MM-dd HH:mm:ss, yyyy-MM-dd'T'HH:mm:ss, yyyy-MM-dd'T'HH:mm:ss.SSS
 	 * @return Joda DateTime
-	 * @throws FmsInvalidFormatException 요청된 DateTime 문자열의 형식이 올바르지 않은 경우 발생
 	 */
 	public static LocalDateTime parseToLocalDateTime(String dateString) {
 		return parseToLocalDateTime(dateString, true);
@@ -82,7 +80,7 @@ public class BHiveDateUtil {
 	 * @param dateString yyyy-MM-dd, yyyy/MM/dd, yyyyMMdd, yyyyMMddHHmmss, yyyy-MM-dd HH:mm:ss, yyyy-MM-dd'T'HH:mm:ss, yyyy-MM-dd'T'HH:mm:ss.SSS
 	 * @param throwException 처리중 예외가 발생하면 throw 할 것인지 여부
 	 * @return Joda DateTime (throwException이 false이면 변환실패시 null반환)
-	 * @throws FmsInvalidFormatException 요청된 DateTime 문자열의 형식이 올바르지 않은 경우 발생 (throwException이 true일때만...)
+	 * @throws BHiveInvalidFormatException 요청된 DateTime 문자열의 형식이 올바르지 않은 경우 발생 (throwException이 true일때만...)
 	 */
 	public static LocalDateTime parseToLocalDateTime(String dateString, Boolean throwException) {
 		if(StringUtil.isEmptyTrimmed(dateString)) {
@@ -119,7 +117,6 @@ public class BHiveDateUtil {
 	 * @param dateString
 	 * @param format date Format
 	 * @return Joda DateTime (throwException이 false이면 변환실패시 null반환)
-	 * @throws FmsInvalidFormatException 요청된 DateTime 문자열의 형식이 올바르지 않은 경우 발생 (throwException이 true일때만...)
 	 */
 	public static LocalDateTime parseToLocalDateTime(String dateString, String format) {
 		if(StringUtil.isEmptyTrimmed(dateString)) {

@@ -12,7 +12,7 @@ import org.springframework.web.filter.OncePerRequestFilter;
 /**
  * CORS 정책 필터
  * 
- * @author DongMan Kwon <dmkwon@intellicode.co.kr>
+ * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  */
 public class BHiveCORSFilter extends OncePerRequestFilter {
 	

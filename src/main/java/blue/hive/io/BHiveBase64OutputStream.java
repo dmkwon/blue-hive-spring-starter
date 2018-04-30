@@ -5,11 +5,11 @@ import java.io.OutputStream;
 import org.apache.commons.codec.binary.Base64OutputStream;
 
 /**
- * {@link Base64OutputStream}의 MIME_CHUNK_SIZE마다 CHUNK_SEPARATOR를 삽입하는 동작의 설정을 바꾼 AbleBase64OutputStream
+ * {@link Base64OutputStream}의 MIME_CHUNK_SIZE마다 CHUNK_SEPARATOR를 삽입하는 동작의 설정을 바꾼 BHiveBase64OutputStream
  *
  * 그냥 암호화시 사용하기 위해 한줄로 쭉 출력
  *
- * @author DongMan Kwon <dmkwon@intellicode.co.kr>
+ * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  */
 public class BHiveBase64OutputStream extends Base64OutputStream {
 
@@ -38,7 +38,8 @@ public class BHiveBase64OutputStream extends Base64OutputStream {
 
 
 	/**
-	 * @param out
+	 * BHiveBase64OutputStream instantiation
+	 * @param out output stream
 	 */
 	public BHiveBase64OutputStream(OutputStream out) {
 		super(out,

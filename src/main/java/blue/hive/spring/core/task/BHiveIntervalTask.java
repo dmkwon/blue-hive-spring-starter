@@ -3,7 +3,7 @@ package blue.hive.spring.core.task;
 /**
  * Interval 프로세스를 실행하는 Runnable Task
  * 
- * @author DongMan Kwon <dmkwon@intellicode.co.kr>
+ * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  *
  */
 public class BHiveIntervalTask implements Runnable {

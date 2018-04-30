@@ -37,7 +37,7 @@ import blue.hive.jackson.datatype.joda.BHiveLocalDateTimeDeserialiser;
  * @see Jackson2ObjectMapperBuilder - ObjectMapper Builder
  * @see Jackson2ObjectMapperFactoryBean - ObjectMapper Factory Bean
  *
- * @author DongMan Kwon <dmkwon@intellicode.co.kr>
+ * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  */
 public class BHiveXmlMapper extends XmlMapper implements Externalizable  {
 

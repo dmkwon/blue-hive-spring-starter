@@ -7,7 +7,7 @@ import blue.hive.validation.constraints.BHiveMaxLength;
 /**
  * BHiveMaxLength Validator
  * 
- * @author DongMan Kwon <dmkwon@intellicode.co.kr>
+ * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  */
 public class BHiveMaxLengthValidatorForCharSequence extends BHiveConstraintValidator<BHiveMaxLength, CharSequence> {
 

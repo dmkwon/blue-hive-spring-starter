@@ -29,7 +29,7 @@ import org.springframework.util.Assert;
 * An {@link AuthenticationProvider} implementation that retrieves user details from a
 * {@link UserDetailsService}.
 *
-* @author DongMan Kwon <dmkwon@intellicode.co.kr>
+* @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
 */
 public class BHiveDaoAuthenticationProvider extends AbstractUserDetailsAuthenticationProvider {
 	

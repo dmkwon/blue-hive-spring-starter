@@ -23,7 +23,7 @@ import blue.hive.spring.http.BHiveTeeHttpOutputMessage;
 /**
  * {@link HttpMessageConverter}에 암호화 기능을 추가하는 Generic Converter
  *
- * @author DongMan Kwon <dmkwon@intellicode.co.kr>
+ * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  *
  */
 public class BHiveSecuredHttpMessageConverter<T> implements HttpMessageConverter<T> {

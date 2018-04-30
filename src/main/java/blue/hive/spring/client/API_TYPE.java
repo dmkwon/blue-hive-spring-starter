@@ -3,7 +3,7 @@ package blue.hive.spring.client;
 /**
  * 레거시 호출을 위한 RestTemplate을 사용할 때 Legacy의 통신방식
  *
- * @author DongMan Kwon <dmkwon@intellicode.co.kr>
+ * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  */
 public enum API_TYPE {
 

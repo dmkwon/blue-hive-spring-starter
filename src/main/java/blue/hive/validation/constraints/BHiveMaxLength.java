@@ -22,7 +22,7 @@ import blue.hive.validation.constraints.impl.BHiveMaxLengthValidatorForLong;
 
 /**
  * 어노테이션된 문자열의 길이를 제한 ({@code null} or empty인 경우 검사안함) 
- * @author DongMan Kwon <dmkwon@intellicode.co.kr>
+ * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  */
 @Documented
 @Constraint(validatedBy = { BHiveMaxLengthValidatorForCharSequence.class, BHiveMaxLengthValidatorForInteger.class, BHiveMaxLengthValidatorForLong.class })

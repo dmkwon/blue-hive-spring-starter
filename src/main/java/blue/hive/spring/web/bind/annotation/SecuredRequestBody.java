@@ -16,7 +16,7 @@ import blue.hive.spring.web.servlet.mvc.method.annotation.BHiveSecuredRequestRes
  * 
  * {@link RequestResponseBodyMethodProcessor}를 수정한 {@link BHiveSecuredRequestResponseBodyMethodProcessor}에서 처리
  * 
- * @author DongMan Kwon <dmkwon@intellicode.co.kr>
+ * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  */
 @Target(ElementType.PARAMETER)
 @Retention(RetentionPolicy.RUNTIME)
@@ -28,6 +28,7 @@ public @interface SecuredRequestBody {
 	 * <p>Default is {@code true}, leading to an exception thrown in case
 	 * there is no body content. Switch this to {@code false} if you prefer
 	 * {@code null} to be passed when the body content is {@code null}.
+	 * @return boolean required 여부 
 	 */
 	boolean required() default true;
 

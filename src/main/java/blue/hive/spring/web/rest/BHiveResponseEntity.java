@@ -10,7 +10,7 @@ import blue.hive.spring.web.rest.BHiveView.BaseView;
 /**
  * Framework REST 공통 메시지
  *
- * @author DongMan Kwon <dmkwon@intellicode.co.kr>
+ * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  */
 public class BHiveResponseEntity<T> {
 	
@@ -82,18 +82,29 @@ public class BHiveResponseEntity<T> {
 		this.fieldError = fieldError;
 	}
 
-	/**	성공 응답 생성 */
+	/**	
+	 * 성공 응답 생성 
+	 */
 	public BHiveResponseEntity() {
 		super();
 	}
 
-	/**	성공 응답 생성 with Body */
+	/**	
+	 * 성공 응답 생성 with Body
+	 * @param body body's object
+	 */
 	public BHiveResponseEntity(T body) {
 		super();
 		this.body = body;
 	}
 
-	/**	응답 생성 with Status, Msg, cbCmd, cbParam */
+	/**	
+	 * 응답 생성 with Status, Msg, cbCmd, cbParam 
+	 * @param status response status
+	 * @param msg response message
+	 * @param cbCmd callback command
+	 * @param cbParam callback parameter
+	 */
 	public BHiveResponseEntity(String status, String msg, REST_CALLBACK_CMD cbCmd, Object cbParam) {
 		super();
 		this.status = status;
@@ -102,7 +113,14 @@ public class BHiveResponseEntity<T> {
 		this.cbParam = cbParam;
 	}
 
-	/** 생성자 **/
+	/** 
+	 * 생성자 
+	 * @param status response status
+	 * @param msg response message
+	 * @param cbCmd callback command
+	 * @param cbParam callback parameter
+	 * @param fieldError error field list
+	 */
 	public BHiveResponseEntity(String status, String msg, REST_CALLBACK_CMD cbCmd, Object cbParam, List<BHiveFieldError> fieldError) {
 		super();
 		this.status = status;
@@ -112,7 +130,15 @@ public class BHiveResponseEntity<T> {
 		this.fieldError = fieldError;
 	}
 
-	/** 생성자 **/
+	/** 
+	 * 생성자 
+	 * @param status response status
+	 * @param msg response message
+	 * @param cbCmd callback command
+	 * @param cbParam callback parameter
+	 * @param body body's object
+	 * @param fieldError error field list
+	 */
 	public BHiveResponseEntity(String status, String msg, REST_CALLBACK_CMD cbCmd, Object cbParam, T body, List<BHiveFieldError> fieldError) {
 		super();
 		this.status = status;

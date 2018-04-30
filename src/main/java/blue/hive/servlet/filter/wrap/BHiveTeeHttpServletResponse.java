@@ -15,7 +15,7 @@ import org.springframework.util.StringUtils;
 /**
  * Ablecoms TeeHttpServletResponse. Logback Access TeeHttpServletResponse 소스 참고
  *
- * @author DongMan Kwon <dmkwon@intellicode.co.kr>
+ * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  */
 public class BHiveTeeHttpServletResponse extends HttpServletResponseWrapper {
 
@@ -51,7 +51,7 @@ public class BHiveTeeHttpServletResponse extends HttpServletResponseWrapper {
 
 	/**
 	 * Tee로 저장된 내용을 획득
-	 * @return
+	 * @return byte[] byte array
 	 */
 	public byte[] getOutputBuffer() {
 		// teeServletOutputStream can be null if the getOutputStream method is
@@ -75,6 +75,7 @@ public class BHiveTeeHttpServletResponse extends HttpServletResponseWrapper {
 
 	/**
 	 * Tee로 저장된 byte[]를 UTF-8 문자열로 획득 (Trim처리)
+	 * @return String Tee output String value
 	 */
 	public String getTeeOutputString() {
 		byte[] buffer = getOutputBuffer();

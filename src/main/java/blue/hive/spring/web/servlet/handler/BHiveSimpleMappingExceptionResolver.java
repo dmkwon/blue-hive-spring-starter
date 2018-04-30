@@ -15,7 +15,7 @@ import org.springframework.web.servlet.handler.SimpleMappingExceptionResolver;
  * 
  * 로깅 기능 추가
  * 
- * @author DongMan Kwon <dmkwon@intellicode.co.kr>
+ * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  */
 public class BHiveSimpleMappingExceptionResolver extends SimpleMappingExceptionResolver implements MessageSourceAware {
 

@@ -3,7 +3,7 @@ package blue.hive.exception;
 /**
  * 변환 관련 오류
  * 
- * @author DongMan Kwon <dmkwon@intellicode.co.kr>
+ * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  */
 public class BHiveConvertException extends BHiveRuntimeException {
 

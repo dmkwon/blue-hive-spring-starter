@@ -16,7 +16,7 @@ import blue.hive.spring.web.servlet.mvc.method.annotation.BHiveSecuredRequestRes
  * 
  * {@link RequestResponseBodyMethodProcessor}를 수정한 {@link BHiveSecuredRequestResponseBodyMethodProcessor}에서 처리
  * 
- * @author DongMan Kwon <dmkwon@intellicode.co.kr>
+ * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  */
 @Target({ElementType.TYPE, ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)

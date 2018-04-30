@@ -19,7 +19,7 @@ import blue.hive.spring.web.rest.BHiveView;
  * {@link Page}의 구현체인 {@link PageImpl}이 
  * {@link JsonView} Annotaion을 처리할 수 없어서 옮겨 담기 위한 {@link Page} 구현체
  * 
- * @author DongMan Kwon <dmkwon@intellicode.co.kr>
+ * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  */
 public class BHivePageImpl<T> implements Page<T>, Slice<T> {
 

@@ -62,7 +62,7 @@ import blue.hive.spring.web.bind.annotation.SecuredResponseBody;
  * 400 response status code if {@link DefaultHandlerExceptionResolver} is
  * configured.
  *
- * @author DongMan Kwon <dmkwon@intellicode.co.kr>
+ * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  * @author Arjen Poutsma
  * @author Rossen Stoyanchev
  * @since 3.1

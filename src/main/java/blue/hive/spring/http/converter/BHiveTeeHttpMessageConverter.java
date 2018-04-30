@@ -18,7 +18,7 @@ import blue.hive.spring.http.BHiveTeeHttpOutputMessage;
 /**
  * {@link HttpMessageConverter}를 래핑하여 입출력 내용을 Tee하여 로깅하는 클래스
  *
- * @author DongMan Kwon <dmkwon@intellicode.co.kr>
+ * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  */
 public class BHiveTeeHttpMessageConverter<T> implements HttpMessageConverter<T> {
 	Logger logger = LoggerFactory.getLogger(this.getClass());

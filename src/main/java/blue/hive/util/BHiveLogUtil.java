@@ -24,7 +24,7 @@ import ch.qos.logback.core.ConsoleAppender;
  * 
  * SLF4J, Logback classic, 로깅 헬퍼
  * 
- * @author DongMan Kwon <dmkwon@intellicode.co.kr>
+ * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  */
 public class BHiveLogUtil {
 
@@ -92,12 +92,12 @@ public class BHiveLogUtil {
 	}
 	
 	/**
-	 * 요청객체의 파라미터를 로깅이 가능하도록 Map<String, String> 형태로 반환
+	 * 요청객체의 파라미터를 로깅이 가능하도록 Map&lt;String, String&gt; 형태로 반환
 	 * 
-	 * request.getParameterMap()은 Map<String, String[]>인데 Map<String, String>으로 로깅이 가능하게 변환하여 반환
+	 * request.getParameterMap()은 Map&lt;String, String[]&gt;인데 Map&lt;String, String&gt;으로 로깅이 가능하게 변환하여 반환
 	 * 
 	 * @param request 요청 객체
-	 * @return Map<String, String> 형태의 요청 파라미터맵 
+	 * @return Map&lt;String, String&gt; 형태의 요청 파라미터맵 
 	 */
 	public static Map<String, String> getLoggableRequestMap(ServletRequest request) {
 		Map<String, String> result = new HashMap<String, String>();

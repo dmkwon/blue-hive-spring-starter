@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
 /**
  * 암복호화 관련 유틸
  *
- * @author DongMan Kwon <dmkwon@intellicode.co.kr>
+ * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  */
 public class BHiveCryptoUtil {
 	protected static Logger logger = LoggerFactory.getLogger(BHiveCryptoUtil.class);

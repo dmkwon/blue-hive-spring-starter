@@ -18,7 +18,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 /**
  * MyBatis용 Auditable 데이터객체에 Audit정보 처리
- * @author DongMan Kwon <dmkwon@intellicode.co.kr>
+ * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  */
 @Intercepts({ @Signature(type = Executor.class, method = "update", args = { MappedStatement.class, Object.class }) })
 public class MyBatisAuditAwarePlugin implements Interceptor {

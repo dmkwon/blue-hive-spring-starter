@@ -50,7 +50,7 @@ import blue.hive.util.BHiveVOUtil;
  * 	- ableStreamingExcelView: intelliwframe.spring.web.view.AbleStreamingExcelView
  * 	- ableCsvView: intelliwframe.spring.web.view.AbleCsvView
  *
- * @author DongMan Kwon <dmkwon@intellicode.co.kr>
+ * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  */
 @SuppressWarnings("rawtypes")
 public class BHiveExcelCommand {
@@ -136,11 +136,15 @@ public class BHiveExcelCommand {
 		this.messageSource = messageSource;
 	}
 
-	/** 출력용 필드 코드표를 추가
+	/** 
+	 * 출력용 필드 코드표를 추가
 	 * @param field 코드표를 적용할 필드
 	 * @param codeDTList 코드표를 만들어 낼 코드DT 목록
 	 * @param valueProp 코드DT의 값 속성명
 	 * @param nameProp 코드DT의 이름 속성명
+	 * @throws IllegalAccessException throw illegal access exception
+	 * @throws InvocationTargetException throw invocation target exception
+	 * @throws NoSuchMethodException throw no such method exception
 	 */
 	public void addCodeMap(String field, List codeDTList, String valueProp, String nameProp) throws IllegalAccessException, InvocationTargetException, NoSuchMethodException {
 		Map<String, String> fieldCodeMap = new HashMap<String, String>();
@@ -152,16 +156,24 @@ public class BHiveExcelCommand {
 		fieldCodeMapList.put(field, fieldCodeMap);
 	}
 
-	/** 출력용 필드 코드표를 추가
+	/** 
+	 * 출력용 필드 코드표를 추가
 	 * @param field 코드표를 적용할 필드
-	 * @param fieldCodeMap 코드표, value-name 쌍 (Entry<String, String>)
+	 * @param fieldCodeMap 코드표, value-name 쌍
 	 */
 	public void addCodeMap(String field, Map<String, String> fieldCodeMap) {
 		fieldCodeMapList.put(field, fieldCodeMap);
 	}
 
 	////////////////////////////////////////////////////////////////////////////////
-	/** 출력용 CellStyle 생성 (폰트 적용) */
+	/** 
+	 * 출력용 CellStyle 생성 (폰트 적용)
+	 * @param bgColor background color to use
+	 * @param align   align to use
+	 * @param valign  vertical align to use
+	 * @param font    font to use
+	 * @return HSSFCellStyle hssf cell style to use
+	 */
 	protected HSSFCellStyle createCustomCellStyle(short bgColor, short align, short valign, HSSFFont font) {
 		HSSFCellStyle cellStyle = workbook.createCellStyle();
 		cellStyle.setFillPattern(HSSFCellStyle.SOLID_FOREGROUND);
@@ -174,18 +186,42 @@ public class BHiveExcelCommand {
 		return cellStyle;
 	}
 
-	/** 출력용 CellStyle 생성 (폰트 속성 적용) */
+	/** 
+	 * 출력용 CellStyle 생성 (폰트 속성 적용) 
+	 * @param bgColor background color to use
+	 * @param align   align to use
+	 * @param valign  vertical align to use
+	 * @param fontHeightInPoints  font height in points to use
+	 * @param fontColor   font color to use
+	 * @param boldWeight  boldweight to use
+	 * @param underline   under line to use
+	 * @return HSSFCellStyle hssf cell style to use
+	 */
 	protected HSSFCellStyle createCustomCellStyle(short bgColor, short align, short valign, short fontHeightInPoints, short fontColor, short boldWeight, byte underline) {
 		HSSFFont font = createFont(fontHeightInPoints, fontColor, boldWeight, null, underline);
 		return createCustomCellStyle(bgColor, align, valign, font);
 	}
 
-	/** 출력용 CellStyle 생성 */
+	/** 
+	 * 출력용 CellStyle 생성 
+	 * @param bgColor background color to use
+	 * @param align   align to use
+	 * @param valign  vertical align to use
+	 * @return HSSFCellStyle hssf cell style to use
+	 */
 	protected HSSFCellStyle createCustomCellStyle(short bgColor, short align, short valign) {
 		return createCustomCellStyle(bgColor, align, valign, null);
 	}
 
-	/** 출력용 Font 생성 */
+	/** 
+	 * 출력용 Font 생성
+	 * @param fontHeightInPoints  font height in points to use
+	 * @param fontColor   font color to use
+	 * @param boldWeight  boldweight to use
+	 * @param fontName    font name to use
+	 * @param underline   under line to use
+	 * @return HSSFCellStyle hssf cell style to use
+	 */
 	private HSSFFont createFont(short fontHeightInPoints, short fontColor, short boldWeight, String fontName, byte underline/*HSSFFont.U_NONE*/) {
 		HSSFFont font = workbook.createFont();
 		font.setFontHeightInPoints(fontHeightInPoints);
@@ -200,7 +236,12 @@ public class BHiveExcelCommand {
 		return font;
 	}
 
-	/** 출력용 CellStyle에 Border style적용 */
+	/** 
+	 * 출력용 CellStyle에 Border style적용 
+	 * @param cellStyle  cell Style to use
+	 * @param borderColor   border Color to use
+	 * @param borderStyle  border Style to use
+	 */
 	private void setBorderStyleToCellStyle(HSSFCellStyle cellStyle, short borderColor, short borderStyle) {
 		cellStyle.setLeftBorderColor(borderColor);
 		cellStyle.setRightBorderColor(borderColor);
@@ -212,7 +253,10 @@ public class BHiveExcelCommand {
 		cellStyle.setBorderBottom(borderStyle);
 	}
 
-	/** 제목 출력용 Style */
+	/** 
+	 * 제목 출력용 Style 
+	 * @return HSSFCellStyle hssf cell style to use
+	 */
 	protected HSSFCellStyle createTitleCellStyle() {
 		return createTitleCellStyle((short) 12, false);
 	}
@@ -229,12 +273,18 @@ public class BHiveExcelCommand {
 		return createTitleCellStyle(fontHeightInPoints, HSSFColor.BLACK.index, HSSFFont.U_NONE, setBorder);
 	}
 
-	/** 부제목 출력용 Style */
+	/** 
+	 * 부제목 출력용 Style 
+	 * @return HSSFCellStyle hssf cell style to use
+	 */
 	protected HSSFCellStyle createSubTitleCellStyle() {
 		return createCustomCellStyle(HSSFColor.WHITE.index, HSSFCellStyle.ALIGN_RIGHT, HSSFCellStyle.VERTICAL_CENTER, (short) 10, HSSFColor.GREY_50_PERCENT.index, HSSFFont.BOLDWEIGHT_NORMAL, HSSFFont.U_NONE);
 	}
 
-	/** 헤더 출력용 Style */
+	/** 
+	 * 헤더 출력용 Style 
+	 * @return HSSFCellStyle hssf cell style to use
+	 */
 	protected HSSFCellStyle createHeaderCellStyle() {
 		HSSFCellStyle headerStyle = createCustomCellStyle(
 				HSSFColor.GREY_25_PERCENT.index,
@@ -247,7 +297,11 @@ public class BHiveExcelCommand {
 		return headerStyle;
 	}
 
-	/** Data 출력용 Style @param align HSSFCellStyle */
+	/** 
+	 * Data 출력용 Style 
+	 * @param align align to use
+	 * @return HSSFCellStyle hssf cell style to use
+	 */
 	protected HSSFCellStyle createDataCellStyle(short align) {
 		HSSFCellStyle dataCellStyle = createCustomCellStyle(HSSFColor.WHITE.index, align, HSSFCellStyle.VERTICAL_TOP);
 		setBorderStyleToCellStyle(dataCellStyle, HSSFColor.GREY_50_PERCENT.index, HSSFCellStyle.BORDER_THIN);
@@ -258,7 +312,13 @@ public class BHiveExcelCommand {
 	////////////////////////////////////////////////////////////////////////////////
 	//Helper
 
-	/** Excel Row의 특정 Cell에 값을 렌더링 (스타일 적용가능) */
+	/** 
+	 * Excel Row의 특정 Cell에 값을 렌더링 (스타일 적용가능) 
+	 * @param excelRow HSSFRow excelRow
+	 * @param cellnum int cell number
+	 * @param cellValue String cell value
+	 * @param cellStyle HSSFCellStyle object
+	 */
 	protected static void renderCustomCellValue(HSSFRow excelRow, int cellnum, String cellValue, HSSFCellStyle cellStyle) {
 		renderCustomCellValue(excelRow, cellnum, cellValue, cellStyle, 1, 1);
 	}

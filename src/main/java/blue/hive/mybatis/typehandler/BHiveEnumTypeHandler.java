@@ -16,7 +16,7 @@ import blue.hive.util.BHiveEnumUtil;
 /**
  * MyBatis Enum Type Handler
  * 
- * @author DongMan Kwon <dmkwon@intellicode.co.kr>
+ * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  * @param <E> Enum 타입
  */
 public class BHiveEnumTypeHandler<E extends Enum<E>> extends BaseTypeHandler<E> {

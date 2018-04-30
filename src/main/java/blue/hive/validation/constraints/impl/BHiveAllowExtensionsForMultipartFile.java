@@ -13,7 +13,7 @@ import blue.hive.validation.constraints.BHiveAllowExtensions;
 /**
  * BHiveAllowExtensions Validator
  * 
- * @author DongMan Kwon <dmkwon@intellicode.co.kr>
+ * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  */
 public class BHiveAllowExtensionsForMultipartFile extends BHiveConstraintValidator<BHiveAllowExtensions, MultipartFile> {
 

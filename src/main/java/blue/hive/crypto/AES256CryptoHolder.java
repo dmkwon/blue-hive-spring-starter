@@ -3,7 +3,7 @@ package blue.hive.crypto;
 /**
  * 암호화 처리기 기본 인스턴스 Holder
  *
- * @author DongMan Kwon <dmkwon@intellicode.co.kr>
+ * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  */
 public class AES256CryptoHolder {
 	

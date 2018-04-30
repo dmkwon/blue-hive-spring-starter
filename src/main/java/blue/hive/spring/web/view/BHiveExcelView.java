@@ -13,7 +13,7 @@ import blue.hive.exception.BHiveRuntimeException;
 
 /**
  * support excel view
- * @author DongMan Kwon <dmkwon@intellicode.co.kr>
+ * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  */
 @SuppressWarnings("deprecation")
 public class BHiveExcelView extends AbstractExcelView {

@@ -3,7 +3,7 @@ package blue.hive.spring.web.view;
 /**
  * Excel 출력시 Cell의 Merge처리 방식
  *
- * @author DongMan Kwon <dmkwon@intellicode.co.kr>
+ * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  */
 public enum BHiveExcelMergeMode {
 

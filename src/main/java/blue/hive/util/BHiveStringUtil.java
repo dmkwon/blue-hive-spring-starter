@@ -12,7 +12,7 @@ import blue.hive.util.anyframe.StringUtil;
 /**
  * String 관련 유틸
  * 
- * @author DongMan Kwon <dmkwon@intellicode.co.kr>
+ * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  */
 public class BHiveStringUtil {
 

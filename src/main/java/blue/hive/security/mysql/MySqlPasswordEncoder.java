@@ -10,9 +10,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 /**
  * MySQL의 password() function과 같은 Password Encoder
  * 
- * select password('qwer1234') ==> "*D75CC763C5551A420D28A227AC294FADE26A2FF2"
+ * select password('qwer1234') &gt; "*D75CC763C5551A420D28A227AC294FADE26A2FF2"
  * 
- * @author DongMan Kwon <dmkwon@intellicode.co.kr>
+ * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  */
 public class MySqlPasswordEncoder implements PasswordEncoder {
 	

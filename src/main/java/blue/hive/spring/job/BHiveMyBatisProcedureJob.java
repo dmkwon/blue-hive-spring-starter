@@ -13,6 +13,8 @@ import blue.hive.spring.core.task.BHiveIntervalTask;
 import blue.hive.util.BHiveHostingUtil;
 import blue.hive.util.anyframe.StringUtil;
 
+
+
 /**
  * MyBatis의 프로시져를 주기적으로 호출하기 위한 Job
  * 
@@ -28,7 +30,7 @@ import blue.hive.util.anyframe.StringUtil;
  * &lt;/bean&gt;
  * </pre>
  * 
- * @author DongMan Kwon <dmkwon@intellicode.co.kr>
+ * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  */
 public class BHiveMyBatisProcedureJob extends BHiveSqlSessionDaoSupport implements InitializingBean, BHiveIntervalCallable {
 

@@ -9,7 +9,7 @@ import blue.hive.util.anyframe.StringUtil;
 /**
  * WAS Hosting 환경관련 Util
  * 
- * @author DongMan Kwon <dmkwon@intellicode.co.kr>
+ * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  */
 public class BHiveHostingUtil {
 

@@ -13,7 +13,7 @@ import blue.hive.spring.web.rest.BHiveView;
  * {@link Sort}와 내부의 {@link Order} 구현체가  
  * {@link JsonView} Annotaion을 처리할 수 없어서 옮겨 담기 위한 {@link Sort} 구현체
  * 
- * @author DongMan Kwon <dmkwon@intellicode.co.kr>
+ * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  */
 public class BHiveSort extends Sort {
 

@@ -3,7 +3,7 @@ package blue.hive.spring.core.task;
 /**
  * Interval Job 프로세스 인터페이스
  * 
- * @author DongMan Kwon <dmkwon@intellicode.co.kr>
+ * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  *
  */
 public interface BHiveIntervalCallable extends BHiveJobCallable {

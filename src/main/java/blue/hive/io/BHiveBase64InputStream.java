@@ -9,7 +9,7 @@ import org.apache.commons.codec.binary.Base64InputStream;
  *
  * 그냥 암호화시 사용하기 위해 한줄로 쭉 출력
  *
- * @author DongMan Kwon <dmkwon@intellicode.co.kr>
+ * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  */
 public class BHiveBase64InputStream extends Base64InputStream {
 

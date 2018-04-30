@@ -29,10 +29,11 @@ import blue.hive.jackson.datatype.joda.BHiveLocalDateTimeDeserialiser;
  * 
  *  - JodaModule을 등록
  * 
- * @see http://stackoverflow.com/questions/13700853/jackson2-json-iso-8601-date-from-jodatime-in-spring-3-2rc1
+ * @see <a href="http://stackoverflow.com/questions/13700853/jackson2-json-iso-8601-date-from-jodatime-in-spring-3-2rc1">jackson2 JSON ISO 8601 date from JodaTime in Spring 3.2RC1</a>
  * 
- * @author DongMan Kwon <dmkwon@intellicode.co.kr> 
+ * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a> 
  */
+
 public class BHiveObjectMapper extends ObjectMapper implements Externalizable  {
 	private static final long serialVersionUID = 9103711369247336228L;
 

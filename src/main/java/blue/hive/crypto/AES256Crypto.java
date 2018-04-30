@@ -23,7 +23,7 @@ import blue.hive.io.BHiveBase64OutputStream;
 /**
  * 암호화 처리기 (AES256)
  *
- * @author DongMan Kwon <dmkwon@intellicode.co.kr>
+ * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  */
 public class AES256Crypto {
 	Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -117,11 +117,21 @@ public class AES256Crypto {
 		}
 	}
 
-	/** 주어진 문자열을 기본(UTF-8)인코딩으로 암호화된 바이트배열 획득 */
+	/** 
+	 * 주어진 문자열을 기본(UTF-8)인코딩으로 암호화된 바이트배열 획득 
+	 * @param plainString plain String value
+	 * @return byte[] byte array value
+	 */
 	public byte[] encryptString(String plainString) {
 		return encryptString(plainString, UTF8);
 	}
-	/** 주어진 문자열을 주어진 인코딩으로 암호화된 바이트배열 획득 */
+	
+	/** 
+	 * 주어진 문자열을 주어진 인코딩으로 암호화된 바이트배열 획득 
+	 * @param plainString plain String value
+	 * @param charset character set
+	 * @return byte[] byte array value
+	 */
 	public byte[] encryptString(String plainString, Charset charset) {
 		if(StringUtils.isEmpty(plainString)) {
 			logger.warn("encryptString FAILED. -> plainString is empty.");
@@ -148,11 +158,21 @@ public class AES256Crypto {
 		return cipherBytes;
 	}
 
-	/** 주어진 문자열을 기본(UTF-8)인코딩으로 암호화된 바이트배열의 Base64인코딩 문자열 획득 */
+	/** 
+	 * 주어진 문자열을 기본(UTF-8)인코딩으로 암호화된 바이트배열의 Base64인코딩 문자열 획득 
+	 * @param plainString plain String value
+	 * @return String
+	 */
 	public String encryptStringToBase64(String plainString) {
 		return encryptStringToBase64(plainString, UTF8);
 	}
-	/** 주어진 문자열을 주어진 인코딩으로 암호화된 바이트배열의 Base64인코딩 문자열 획득 */
+	
+	/** 
+	 * 주어진 문자열을 주어진 인코딩으로 암호화된 바이트배열의 Base64인코딩 문자열 획득 
+	 * @param plainString plain String value
+	 * @param charset character set
+	 * @return String
+	 */
 	public String encryptStringToBase64(String plainString, Charset charset) {
 		byte[] cipherBytes = encryptString(plainString, charset);
 		if(cipherBytes != null) {
@@ -164,11 +184,20 @@ public class AES256Crypto {
 		return plainString;
 	}
 
-	/** 주어진 OutputStream을 암호화하는 OutputStream을 생성 (Base64Encoding 적용) */
+	/** 
+	 * 주어진 OutputStream을 암호화하는 OutputStream을 생성 (Base64Encoding 적용) 
+	 * @param os output stream
+	 * @return OutputStream
+	 */
 	public OutputStream getEncryptChiperOutputStream(OutputStream os) {
 		return getEncryptChiperOutputStream(os, true);
 	}
-	/** 주어진 OutputStream을 암호화하는 OutputStream을 생성 (Base64Encoding 옵션 적용) */
+	/** 
+	 * 주어진 OutputStream을 암호화하는 OutputStream을 생성 (Base64Encoding 옵션 적용) 
+	 * @param os output stream
+	 * @param useBase64 use base64 encodor
+	 * @return String
+	 */
 	public OutputStream getEncryptChiperOutputStream(OutputStream os, boolean useBase64) {
 		if(os == null) {
 			throw new IllegalArgumentException("OutputStream 'os' parameter cannot be null.");
@@ -186,11 +215,20 @@ public class AES256Crypto {
 		}
 	}
 
-	/** 주어진 암호화된 바이트배열을 복호화하여 기본(UTF-8)인코딩의 문자열로 획득 */
+	/** 
+	 * 주어진 암호화된 바이트배열을 복호화하여 기본(UTF-8)인코딩의 문자열로 획득 
+	 * @param chiperBytes chiper bytes data
+	 * @return String
+	 */
 	public String decryptBytes(byte[] chiperBytes) {
 		return decryptBytes(chiperBytes, UTF8);
 	}
-	/** 주어진 암호화된 바이트배열을 복호화하여 주어진 인코딩의 문자열로 획득 */
+	/** 
+	 * 주어진 암호화된 바이트배열을 복호화하여 주어진 인코딩의 문자열로 획득 
+	 * @param chiperBytes chiper bytes data
+	 * @param charset character set
+	 * @return String
+	 */
 	public String decryptBytes(byte[] chiperBytes, Charset charset) {
 		if(chiperBytes == null || chiperBytes.length == 0) {
 			logger.warn("decryptBytes FAILED. -> chiperBytes is empty.");
@@ -207,11 +245,22 @@ public class AES256Crypto {
 		return plainString;
 	}
 
-	/** 주어진 암호화된 바이트배열을 Base64Encoding된 문자열을 Base64Decoding과 복호화하여 기본(UTF-8)인코딩 문자열로 획득 */
+	/** 
+	 * 주어진 암호화된 바이트배열을 Base64Encoding된 문자열을 Base64Decoding과 복호화하여 기본(UTF-8)인코딩 문자열로 획득 
+	 * @param cipherBase64String chiper base64 string
+	 * @return String
+	 */
 	public String decryptBase64String(String cipherBase64String) {
 		return decryptBase64String(cipherBase64String, UTF8);
 	}
 	
+	
+	/** 
+	 * 주어진 암호화된 바이트배열을 Base64Encoding된 문자열을 Base64Decoding과 복호화하여 charset 인코딩 문자열로 획득 
+	 * @param cipherBase64String chiper base64 string
+	 * @param charset character set
+	 * @return String
+	 */
 	public String decryptBase64String(String cipherBase64String, Charset charset) {
 		if(StringUtils.isEmpty(cipherBase64String)) {
 			logger.warn("decryptBase64String FAILED -> cipherBase64String is empty.");
@@ -223,11 +272,21 @@ public class AES256Crypto {
 		return StringUtils.trimWhitespace(plainString);
 	}
 
-	/** 주어진 InputStream을 복호화하는 InputStream 생성 (Base64Decoding 적용) */
+	/** 
+	 * 주어진 InputStream을 복호화하는 InputStream 생성 (Base64Decoding 적용) 
+	 * @param is input stream 
+	 * @return inputsteream
+	 */
 	public InputStream getDecryptChiperInputStream(InputStream is) {
 		return getDecryptChiperInputStream(is, true);
 	}
-	/** 주어진 InputStream을 복호화하는 InputStream 생성 (Base64Decoding 옵션) */
+	
+	/**
+	 * 주어진 InputStream을 복호화하는 InputStream 생성 (Base64Decoding 옵션) 
+	 * @param is input stream 
+	 * @param useBase64 use base64 
+	 * @return inputsteream
+	 */
 	public InputStream getDecryptChiperInputStream(InputStream is, boolean useBase64) {
 		if(is == null) {
 			throw new IllegalArgumentException("InputStream 'is' parameter cannot be null.");
@@ -243,7 +302,5 @@ public class AES256Crypto {
 			logger.warn("getDecryptChiperInputStream FAILED. EXCEPTION: {} - {}", ex.getClass().getName(), ex.getMessage());
 			throw new BHiveRuntimeException("FAILED TO CREATE DECRYPT INPUTSTREAM.", ex);
 		}
-
 	}
-
 }

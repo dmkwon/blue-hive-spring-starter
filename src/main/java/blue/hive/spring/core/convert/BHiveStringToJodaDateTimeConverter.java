@@ -13,7 +13,7 @@ import blue.hive.util.BHiveDateUtil;
  * 
  * 여러 DateTime형의 문자열을 DateTime으로 변환
  * 
- * @author DongMan Kwon <dmkwon@intellicode.co.kr>
+ * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  */
 public class BHiveStringToJodaDateTimeConverter implements Converter<String, DateTime> {
 

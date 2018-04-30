@@ -9,7 +9,7 @@ import org.springframework.web.client.RestTemplate;
 /**
  * HTTP API 연동을 위한 RestTemplate 확장
  *
- * @author DongMan Kwon <dmkwon@intellicode.co.kr>
+ * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  */
 public class BHiveRestTemplate extends RestTemplate {
 

@@ -29,13 +29,14 @@ import blue.hive.spring.http.converter.BHiveTeeHttpMessageConverter;
 /**
  * BHiveRestTemplate의 Builder
  *
- * @author DongMan Kwon <dmkwon@intellicode.co.kr>
+ * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  */
 public class BHiveRestTemplateBuilder {
 	static Logger logger = LoggerFactory.getLogger(BHiveRestTemplateBuilder.class);
 
 	/**
 	 * BHiveRestTemplate를 생성 (FORM API방식, 암호화 미적용) - POST(application/x-www-form-urlencoded)
+	 * @return BHiveRestTemplate BHiveRestTemplate object
 	 */
 	public static BHiveRestTemplate buildFormApiTemplate() {
 
@@ -76,6 +77,7 @@ public class BHiveRestTemplateBuilder {
 
 	/**
 	 * BHiveRestTemplate를 생성 (REST API방식, 암호화 미적용) - POST(application/json)
+	 * @return BHiveRestTemplate BHiveRestTemplate object
 	 */
 	public static BHiveRestTemplate buildRestApiTemplate() {
 		
@@ -117,6 +119,7 @@ public class BHiveRestTemplateBuilder {
 	/**
 	 * BHiveRestTemplate를 생성 (REST API방식, 암호화 적용, 파라미터에 따라 실서버용/개발용 암호화키 사용) - POST(application/json)
 	 * @param secretKey 암호화시 사용할 키 (API_TYPE.REQUEST_BODY_SECURED_JSON에만 사용)
+	 * @return BHiveRestTemplate BHiveRestTemplate object
 	 */
 	public static BHiveRestTemplate buildSecureRestApiTemplate(String secretKey) {
 		BHiveRestTemplate restTemplate = buildRestTemplate(API_TYPE.REQUEST_BODY_SECURED_JSON, secretKey);
@@ -127,6 +130,7 @@ public class BHiveRestTemplateBuilder {
 	 * 내부용 - 실제로 BHiveRestTemplate을 환경에 맞춰 생성
 	 * @param apiType api의 통신 방식
 	 * @param secretKey 암호화시 사용할 키 (API_TYPE.REQUEST_BODY_SECURED_JSON에만 사용)
+	 * @return BHiveRestTemplate BHiveRestTemplate object
 	 */
 	private static BHiveRestTemplate buildRestTemplate(API_TYPE apiType, String secretKey) {
 		BHiveRestTemplate restTemplate = new BHiveRestTemplate();
@@ -170,6 +174,7 @@ public class BHiveRestTemplateBuilder {
 	/**
 	 * RestTemplate에 설정할 MessageConverter 목록을 생성하여 획득 (JSON용 Converter 반환)
 	 * @param apiType api의 통신 방식
+	 * @return List HttpMessageConverter object list
 	 */
 	private static List<HttpMessageConverter<?>> getHttpMessageConverters(API_TYPE apiType) {
 		List<HttpMessageConverter<?>> messageConverters = new ArrayList<HttpMessageConverter<?>>();
@@ -188,6 +193,7 @@ public class BHiveRestTemplateBuilder {
 	 * RestTemplate에 설정할 MessageConverter 목록을 생성하여 획득 (JSON용 Converter 반환)
 	 * @param apiType api의 통신 방식
 	 * @param secretKey 암호화시 사용할 키 (API_TYPE.REQUEST_BODY_SECURED_JSON에만 사용)
+	 * @return List HttpMessageConverter object list
 	 */
 	private static List<HttpMessageConverter<?>> getHttpMessageConverters(API_TYPE apiType, String secretKey) {
 		List<HttpMessageConverter<?>> messageConverters = new ArrayList<HttpMessageConverter<?>>();

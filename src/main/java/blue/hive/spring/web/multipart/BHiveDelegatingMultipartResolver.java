@@ -18,7 +18,7 @@ import org.springframework.web.multipart.MultipartResolver;
 /**
  * 특정 URL패턴을 제외하는 Delegating Multipart Resolver
  * 
- * @author DongMan Kwon <dmkwon@intellicode.co.kr>
+ * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  */
 public class BHiveDelegatingMultipartResolver implements MultipartResolver, InitializingBean {
 	final static Logger logger = LoggerFactory.getLogger(BHiveDelegatingMultipartResolver.class);
@@ -33,29 +33,47 @@ public class BHiveDelegatingMultipartResolver implements MultipartResolver, Init
 	private MultipartResolver multipartResolver = null;
 	
 	
-	/** Multipart 처리에서 제외할 패턴 목록 */
+	/** 
+	 * Multipart 처리에서 제외할 패턴 목록 
+	 * @return List exclude pattern list to use
+	 */
 	public List<String> getExcludePatterns() {
 		return excludePatterns;
 	}
-	/** Multipart 처리에서 제외할 패턴 목록 */
+	/** 
+	 * Multipart 처리에서 제외할 패턴 목록
+	 * @param excludePatterns exclude pattern list to use
+	 */
 	public void setExcludePatterns(List<String> excludePatterns) {
 		this.excludePatterns = excludePatterns;
 	}
 
-	/** 제외할 요청 경로 검사기 (기본값: AntPathMatcher) */
+	/** 
+	 * 제외할 요청 경로 검사기 (기본값: AntPathMatcher) 
+	 * @return pathMatcher PathMatcher object
+	 */
 	public PathMatcher getPathMatcher() {
 		return pathMatcher;
 	}
-	/** 제외할 요청 경로 검사기 (기본값: AntPathMatcher) */
+	/**
+	 *  제외할 요청 경로 검사기 (기본값: AntPathMatcher) 
+	 *  @param pathMatcher path matcher to user
+	 */
 	public void setPathMatcher(PathMatcher pathMatcher) {
 		this.pathMatcher = pathMatcher;
 	}
 
-	/** 위임할 원본 Multipart Resolver */
+	/** 
+	 * 위임할 원본 Multipart Resolver
+	 * @return MultipartResolver MultipartResolver object
+	 */
 	public MultipartResolver getMultipartResolver() {
 		return multipartResolver;
 	}
-	/** 위임할 원본 Multipart Resolver */
+	/** 
+	 * 위임할 원본 Multipart Resolver 
+	 * @param multipartResolver MultipartResolver object to use
+	 */
 	public void setMultipartResolver(MultipartResolver multipartResolver) {
 		this.multipartResolver = multipartResolver;
 	}

@@ -22,7 +22,7 @@ import blue.hive.util.BHiveUtil;
  * 요청이 Ajax인경우에는 REST 응답으로 Redirect 처리 
  * 
  * @see org.springframework.security.web.DefaultRedirectStrategy
- * @author DongMan Kwon <dmkwon@intellicode.co.kr>
+ * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  */
 public class BHiveRedirectStrategy implements RedirectStrategy {
 
@@ -105,6 +105,7 @@ public class BHiveRedirectStrategy implements RedirectStrategy {
     /**
      * If <tt>true</tt>, causes any redirection URLs to be calculated minus the protocol
      * and context path (defaults to <tt>false</tt>).
+     * @param useRelativeContext 관련 context 정보 사용 true|false
      */
     public void setContextRelative(boolean useRelativeContext) {
         this.contextRelative = useRelativeContext;

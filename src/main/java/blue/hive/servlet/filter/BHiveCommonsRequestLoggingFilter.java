@@ -26,7 +26,7 @@ import blue.hive.util.BHiveHostingUtil;
  * Servlet Filter Matching 보다 자세한 AntPathMatcher지원.
  * Response Payload Logging 추가
  *
- * @author DongMan Kwon <dmkwon@intellicode.co.kr>
+ * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  */
 public class BHiveCommonsRequestLoggingFilter extends CommonsRequestLoggingFilter {
 

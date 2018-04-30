@@ -9,7 +9,7 @@ package blue.hive.spring.web.rest;
  *
  * 추가적인 요청타입. ValidationGroup, Json Deserialization View은 각각의 하위 DT, Entity클래스에 정의
  *
- * @author DongMan Kwon <dmkwon@intellicode.co.kr>
+ * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  */
 public class BHiveView {
 

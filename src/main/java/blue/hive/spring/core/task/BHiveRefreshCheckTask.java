@@ -5,7 +5,7 @@ package blue.hive.spring.core.task;
  * 
  * BHiveRefreshCheckable 객체에 체크를 위임
  * 
- * @author DongMan Kwon <dmkwon@intellicode.co.kr>
+ * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  *
  */
 public class BHiveRefreshCheckTask implements Runnable {

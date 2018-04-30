@@ -25,7 +25,7 @@ import org.springframework.util.StopWatch.TaskInfo;
 /**
  * Logging Aspect for every invokation @RequestMapping annotated methods in @Controller annotated beans
  *
- * @author DongMan Kwon <dmkwon@intellicode.co.kr>
+ * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  */
 @Aspect
 public class BHiveControllerLoggingAspect {

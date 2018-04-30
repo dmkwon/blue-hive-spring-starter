@@ -24,7 +24,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  * 
  * DAO 작성시 MyBatis 관련 공통기능 자동 제공 
  * 
- * @author DongMan Kwon <dmkwon@intellicode.co.kr>
+ * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  * 
  */
 public class BHiveSqlSessionDaoSupport implements InitializingBean {
@@ -108,7 +108,8 @@ public class BHiveSqlSessionDaoSupport implements InitializingBean {
 	 * 
 	 * @param <T>
 	 *            the returned object type
-	 * @param statement
+	 * @param statement 
+	 * 			  Unique identifier matching the statement to use.
 	 * @return Mapped object
 	 */
 	protected <T> T selectOne(String statement) {
@@ -259,7 +260,6 @@ public class BHiveSqlSessionDaoSupport implements InitializingBean {
 	 *            A parameter object to pass to the statement.
 	 * @param handler
 	 *            ResultHandler that will handle each retrieved row
-	 * @return Mapped object
 	 */
 	protected void select(String statement, Object parameter, ResultHandler<?> handler) {
 		if(logger.isDebugEnabled()) { logger.debug("SQL ===>[" + statement + "]"); }
@@ -274,7 +274,6 @@ public class BHiveSqlSessionDaoSupport implements InitializingBean {
 	 *            Unique identifier matching the statement to use.
 	 * @param handler
 	 *            ResultHandler that will handle each retrieved row
-	 * @return Mapped object
 	 */
 	protected void select(String statement, ResultHandler<?> handler){
 		if(logger.isDebugEnabled()) { logger.debug("SQL ===>[" + statement + "]"); }
@@ -286,11 +285,12 @@ public class BHiveSqlSessionDaoSupport implements InitializingBean {
 	 * 
 	 * @param statement
 	 *            Unique identifier matching the statement to use.
+	 * @param parameter
+	 *            A parameter object to pass to the statement.
 	 * @param rowBounds
 	 *            RowBound instance to limit the query results
 	 * @param handler
 	 *            ResultHandler that will handle each retrieved row
-	 * @return Mapped object
 	 */
 	protected void select(String statement, Object parameter, RowBounds rowBounds, ResultHandler<?> handler) {
 		if(logger.isDebugEnabled()) { logger.debug("SQL ===>[" + statement + "]"); }

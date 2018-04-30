@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
 /**
  * Constraint Validator Base Class
  * 
- * @author DongMan Kwon <dmkwon@intellicode.co.kr>
+ * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  */
 public abstract class BHiveConstraintValidator<A extends Annotation, T> implements ConstraintValidator<A, T> {
 	protected final Logger logger = LoggerFactory.getLogger(getClass());
@@ -20,7 +20,7 @@ public abstract class BHiveConstraintValidator<A extends Annotation, T> implemen
 	 * Initialize the validator in preparation for isValid calls.
 	 * The constraint annotation for a given constraint declaration
 	 * is passed.
-	 * <p/>
+	 * 
 	 * This method is guaranteed to be called before any use of this instance for
 	 * validation.
 	 *

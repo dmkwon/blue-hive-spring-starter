@@ -14,7 +14,7 @@ import org.springframework.util.StringUtils;
 /**
  * Ablecoms TeeServletOutputStream. Logback Access의 TeeServletOutputStream 참고.
  *
- * @author DongMan Kwon <dmkwon@intellicode.co.kr>
+ * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  *
  */
 public class BHiveTeeServletOutputStream extends ServletOutputStream {

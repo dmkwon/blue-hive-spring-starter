@@ -16,10 +16,10 @@ import org.slf4j.MDC;
  * slf4j MDC로 주요 관심사를 처리할 수 있게 연동하는 Servlet Filter
  * 
  * client.accessIP: 요청 Client IP (X-FORWARDED-FOR 대응, Localhost IPv6대응)
- * client.accessIP.prefix: client.accessIP IPv4의 맨앞쪽 Segment (127.0.0.1 => 127)
+ * client.accessIP.prefix: client.accessIP IPv4의 맨앞쪽 Segment (127.0.0.1 &ge; 127)
  * client.httpMethod: 요청 HTTP METHOD  
  * 
- * @author DongMan Kwon <dmkwon@intellicode.co.kr>
+ * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  */
 public class BHiveLogMDCInsertingFilter implements Filter {
 
@@ -78,7 +78,7 @@ public class BHiveLogMDCInsertingFilter implements Filter {
 	}
 	
 	/**
-	 * IP주소에서 맨 앞 Segment 획득 (127.0.0.1 => 127)
+	 * IP주소에서 맨 앞 Segment 획득 (127.0.0.1 &ge; 127)
 	 * @param ipAddress IPv4주소
 	 * @return IPv4주소의 맨앞 Segement
 	 */

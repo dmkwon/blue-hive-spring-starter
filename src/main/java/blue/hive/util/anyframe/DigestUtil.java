@@ -33,7 +33,7 @@ import blue.hive.exception.BHiveRuntimeException;
  * encode/decode function and string convert function by using digest algorithm
  * of MD5 or SHA.
  * 
- * @author DongMan Kwon <dmkwon@intellicode.co.kr>
+ * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  */
 public class DigestUtil {
 

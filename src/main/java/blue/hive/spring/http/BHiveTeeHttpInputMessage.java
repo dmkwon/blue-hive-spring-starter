@@ -14,7 +14,7 @@ import org.springframework.util.StringUtils;
  * HttpInputMessage을 Tee처리하여 입력내용을
  * 내부 ByteArray에 저장하여 출력등에 사용할 수 있는 유틸 클래스
  *
- * @author DongMan Kwon <dmkwon@intellicode.co.kr>
+ * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  */
 public class BHiveTeeHttpInputMessage implements HttpInputMessage {
 
@@ -51,7 +51,7 @@ public class BHiveTeeHttpInputMessage implements HttpInputMessage {
 
 	/**
 	 * @return 입력내용 String (UTF-8)
-	 * @throws UnsupportedEncodingException
+	 * @throws UnsupportedEncodingException throws unsupported encoding exception
 	 */
 	public String getTeeInputString() throws UnsupportedEncodingException {
 		return StringUtils.trimTrailingWhitespace(this.baos.toString("UTF-8"));

@@ -8,10 +8,10 @@ import java.lang.annotation.Target;
 /**
  * 특정 속성에 대한 필드명 Annotation
  * 
- * @see http://tutorials.jenkov.com/java-reflection/annotations.html
- * @see http://blog.softwaregeeks.org/archives/642
+ * @see <a href="http://tutorials.jenkov.com/java-reflection/annotations.html">http://tutorials.jenkov.com/java-reflection/annotations.html</a>
+ * @see <a href="http://blog.softwaregeeks.org/archives/642">http://blog.softwaregeeks.org/archives/642</a>
  * 
- * @author DongMan Kwon <dmkwon@intellicode.co.kr>
+ * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.TYPE, ElementType.FIELD})

@@ -17,7 +17,7 @@ import com.google.common.collect.Lists;
  * 서버기동시 Spring.Profile등 환경변수 INFO 로깅
  * spring.profiles.active를 Properties로 설정한 경우와 Environment로 설정한 경우에 대해 모두 지원하기 위한 Sync 작업
  *
- * @author DongMan Kwon <dmkwon@intellicode.co.kr>
+ * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  */
 public class BHiveApplicationContextInitializer implements ApplicationContextInitializer<ConfigurableApplicationContext> {
 

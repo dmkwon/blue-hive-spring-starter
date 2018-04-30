@@ -14,10 +14,10 @@ import org.apache.commons.lang3.text.WordUtils;
 /**
  * 검색조건 맵 (Prefix: search)
  * 
- * put("name", value) => searchName으로 저장
+ * put("name", value) &le; searchName으로 저장
  * get("name") 또는 get("searchName")으로 조회 가능
  * 
- * @author DongMan Kwon <dmkwon@intellicode.co.kr>
+ * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  */
 public class SearchMap extends HashMap<String, Object> {
 

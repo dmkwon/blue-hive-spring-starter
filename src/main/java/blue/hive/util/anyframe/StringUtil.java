@@ -38,7 +38,7 @@ import org.springframework.web.util.HtmlUtils;
  * String Utility Class This class provides utility method to manipulate String
  * Object.
  * 
- * @author DongMan Kwon <dmkwon@intellicode.co.kr>
+ * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  */
 public class StringUtil {
 
@@ -69,7 +69,7 @@ public class StringUtil {
 	/**
 	 * Appends spaces to Stringwidth the input length. <br>
 	 * 
-	 * ex) addSpace("12345", 5) => "12345     "
+	 * ex) addSpace("12345", 5) &ge; "12345     "
 	 * 
 	 * @param str
 	 *            string to be modified
@@ -141,7 +141,7 @@ public class StringUtil {
 
 	/**
 	 * Apply initial law to String. <br>
-	 * <div class="ko"> ex) applyInitialLaw("림업례제") => "임업예제" </div>
+	 * <div class="ko"> ex) applyInitialLaw("림업례제") &ge; "임업예제" </div>
 	 * 
 	 * @param str
 	 *            string to be modified
@@ -214,12 +214,11 @@ public class StringUtil {
 	/**
 	 * Joins the elements of the provided array into a single String containing
 	 * the provided list of elements. ex) String[] test = {"aaa", "bbb", "ccc"};
-	 * arrayToCommaDelimitedString(test) => "aaa,bbb,ccc"
+	 * arrayToCommaDelimitedString(test) &ge; "aaa,bbb,ccc"
 	 * 
 	 * @param array
 	 *            the array of values to join together
 	 * @return the joined String that is seperatd by comma
-	 * @deprecated Use {@link #arrayToDelimitedString(Object[])}
 	 */
 	@Deprecated
 	public static String arrayToCommaDelimitedString(Object[] array) {
@@ -229,7 +228,7 @@ public class StringUtil {
 	/**
 	 * Joins the elements of the provided array into a single String containing
 	 * the provided list of elements. ex) String[] test = {"aaa", "bbb", "ccc"};
-	 * arrayToDelimitedString(test) => "aaa,bbb,ccc"
+	 * arrayToDelimitedString(test) &ge; "aaa,bbb,ccc"
 	 * 
 	 * @param objects
 	 *            the array of values to join together
@@ -244,7 +243,7 @@ public class StringUtil {
 	 * the provided list of elements.
 	 * 
 	 * ex) String[] test = {"aaa", "bbb", "ccc"};
-	 * arrayToDelimitedString(test,",") => "aaa,bbb,ccc"
+	 * arrayToDelimitedString(test,",") &ge; "aaa,bbb,ccc"
 	 * 
 	 * @param objects
 	 *            the array of values to join together
@@ -274,7 +273,6 @@ public class StringUtil {
 	 * @param collection
 	 *            the collection of values to join together
 	 * @return the joined String that is seperatd by comma
-	 * @deprecated Use {@link #collectionToDelimitedString(Collection<String>)}
 	 */
 	@Deprecated
 	public static String collectionToCommaDelimitedString(
@@ -341,7 +339,7 @@ public class StringUtil {
 
 	/**
 	 * Converts a single String with comma delimiter to string array. ex)
-	 * String[] test; test = commaDelimitedStringToStringArray("aaa,bbb,ccc") =>
+	 * String[] test; test = commaDelimitedStringToStringArray("aaa,bbb,ccc") &ge;
 	 * test[0]="aaa", test[1]="bbb"...
 	 * 
 	 * @param str
@@ -357,7 +355,7 @@ public class StringUtil {
 	/**
 	 * Converts asterisk to space in a String.
 	 * 
-	 * ex) convertAsteriskToSpace("test**test") => "test  test"
+	 * ex) convertAsteriskToSpace("test**test") &ge; "test  test"
 	 * 
 	 * @param str
 	 *            string to be converted
@@ -393,8 +391,8 @@ public class StringUtil {
 	/**
 	 * Changes case of first character in a String.
 	 * 
-	 * ex) changeFirstCharacterCase(true, "abcd") => "Abcd"
-	 * changeFirstCharacterCase(false, "ABCD") => "aBCD"
+	 * ex) changeFirstCharacterCase(true, "abcd") &ge; "Abcd"
+	 * changeFirstCharacterCase(false, "ABCD") &ge; "aBCD"
 	 * 
 	 * @param capitalize
 	 *            flag for case (true : uppper case, false : lower case)
@@ -738,7 +736,7 @@ public class StringUtil {
 
 	/**
 	 * Count the number of occurrences of pattern in a String. ex)
-	 * countPattern("aaa", "aa") => 1
+	 * countPattern("aaa", "aa") &ge; 1
 	 * 
 	 * @param str
 	 *            the String to check
@@ -785,7 +783,7 @@ public class StringUtil {
 
 	/**
 	 * Removes all occurrences of characters from within the source string. ex)
-	 * deleteChars("zzAccBxx", "AB") => "zzccxx"
+	 * deleteChars("zzAccBxx", "AB") &ge; "zzccxx"
 	 * 
 	 * @param str
 	 *            the source String to search
@@ -808,7 +806,7 @@ public class StringUtil {
 
 	/**
 	 * Removes all occurrences of a substring from within the source string. ex)
-	 * deletePattern("zzABCcc", "ABC") => "zzcc"
+	 * deletePattern("zzABCcc", "ABC") &ge; "zzcc"
 	 * 
 	 * @param str
 	 *            the source String to search
@@ -824,7 +822,7 @@ public class StringUtil {
 
 	/**
 	 * Converts a single String with delimiter to string array. ex) String[]
-	 * test; test = delimitedStringToStringArray("aaa.bbb.ccc.ddd", "."); =>
+	 * test; test = delimitedStringToStringArray("aaa.bbb.ccc.ddd", "."); &ge;
 	 * test[0]="aaa", test[1]="bbb"...
 	 * 
 	 * @param str
@@ -1172,7 +1170,7 @@ public class StringUtil {
 	/**
 	 * Return a specific length of given character set string.
 	 * 
-	 * @param count
+	 * @param size
 	 *            length of random string to be made
 	 * @param charset
 	 *            supported character set
@@ -1267,7 +1265,7 @@ public class StringUtil {
 	}
 
 	/**
-	 * Checks if String length is greater than zero. ex) "test" => true "" =>
+	 * Checks if String length is greater than zero. ex) "test" &ge; true "" &ge;
 	 * false
 	 * 
 	 * @param str
@@ -1280,8 +1278,8 @@ public class StringUtil {
 	}
 
 	/**
-	 * Checks if String contains no whitespace. ex) hasText(" test ") => true
-	 * hasText(" ") => false hasText("") => false
+	 * Checks if String contains no whitespace. ex) hasText(" test ") &ge; true
+	 * hasText(" ") &ge; false hasText("") &ge; false
 	 * 
 	 * @param str
 	 *            the String to check
@@ -1359,7 +1357,7 @@ public class StringUtil {
 	}
 
 	/**
-	 * It converts integer type to String ( 27 -> '27')
+	 * It converts integer type to String ( 27 &gt; '27')
 	 * 
 	 * <pre>
 	 * StringUtil.integer2string(14) 	= '14'
@@ -1368,7 +1366,6 @@ public class StringUtil {
 	 * @param integer
 	 *            integer type
 	 * @return String string representation of a number
-	 * @deprecated Use @link {@link NumberUtils#intToString(int)}
 	 */
 	@Deprecated
 	public static String integer2string(int integer) {
@@ -1450,8 +1447,8 @@ public class StringUtil {
 	}
 
 	/**
-	 * Checks if the String contains only digits. ex) isDigit("1234") => true
-	 * isDigit("1234A")=> false
+	 * Checks if the String contains only digits. ex) isDigit("1234") &ge; true
+	 * isDigit("1234A")&ge; false
 	 * 
 	 * @param str
 	 *            the String to check, may be null
@@ -1514,7 +1511,7 @@ public class StringUtil {
 
 	/**
 	 * Checks if the String contains only Korean characters. ex) isHangul('가')
-	 * => true isHangul('T') => false
+	 * &ge; true isHangul('T') &ge; false
 	 * 
 	 * @param achar
 	 *            the character to check, may be null
@@ -1529,8 +1526,8 @@ public class StringUtil {
 
 	/**
 	 * Checks if the String contains only Korean characters or any Korean
-	 * characters. ex) isHangul("가나다", true) => true isHangul("가나다abc", true) =>
-	 * false isHangul("가abc", false) => true isHangul("abcd", false) => false
+	 * characters. ex) isHangul("가나다", true) &ge; true isHangul("가나다abc", true) &ge;
+	 * false isHangul("가abc", false) &ge; true isHangul("abcd", false) &ge; false
 	 * 
 	 * @param str
 	 *            the String to check, may be null
@@ -1561,8 +1558,8 @@ public class StringUtil {
 	}
 
 	/**
-	 * Checks if the String contains only letters. ex) isLetter("test") => true
-	 * isLetter("test#$%") => false isLetter("test123") => false isLetter("")=>
+	 * Checks if the String contains only letters. ex) isLetter("test") &ge; true
+	 * isLetter("test#$%") &ge; false isLetter("test123") &ge; false isLetter("")&ge;
 	 * false
 	 * 
 	 * @param str
@@ -1586,7 +1583,7 @@ public class StringUtil {
 
 	/**
 	 * Checks if the String contains only letters or digits. ex)
-	 * isLetterOrDigit("12abC") => true isLetterOrDigit("12@#%")=> false
+	 * isLetterOrDigit("12abC") &ge; true isLetterOrDigit("12@#%")&ge; false
 	 * 
 	 * @param str
 	 *            the String to check, may be null
@@ -1626,13 +1623,12 @@ public class StringUtil {
 
 	/**
 	 * Checks if the String contains any letters except digits. ex)
-	 * isNotNumeric("12345") => false isNumeric("12345ABC") => true
+	 * isNotNumeric("12345") &ge; false isNumeric("12345ABC") &ge; true
 	 * 
 	 * @param str
 	 *            the String to check, may be null
 	 * @return true if String contains any letters, false if not or null string
 	 *         input
-	 * @deprecated Use @link {@link NumberUtils#isNotDigits(int)}
 	 */
 	@Deprecated
 	public static boolean isNotNumeric(String str) {
@@ -1650,7 +1646,7 @@ public class StringUtil {
 
 	/**
 	 * Checks if the CharSequence contains only whitespace. ex) isSpace("   ")
-	 * => true isSpace("") => true isSpace("test") => false
+	 * &ge; true isSpace("") &ge; true isSpace("test") &ge; false
 	 * 
 	 * @param str
 	 *            the String to check, may be null
@@ -1669,8 +1665,8 @@ public class StringUtil {
 
 	/**
 	 * Checks if the CharSequence contains only whitespace. ex)
-	 * isWhiteSpaceOnly("   ") => true isWhiteSpaceOnly("") => true
-	 * isWhiteSpaceOnly("test") => false
+	 * isWhiteSpaceOnly("   ") &ge; true isWhiteSpaceOnly("") &ge; true
+	 * isWhiteSpaceOnly("test") &ge; false
 	 * 
 	 * @param str
 	 *            the String to check, may be null
@@ -1686,7 +1682,7 @@ public class StringUtil {
 	}
 
 	/**
-	 * Gets the leftmost len characters of a String. ex) left("1234567", 3) =>
+	 * Gets the leftmost len characters of a String. ex) left("1234567", 3) &ge;
 	 * "123"
 	 * 
 	 * @param str
@@ -1794,7 +1790,7 @@ public class StringUtil {
 
 	/**
 	 * Converts CR/LF characters to a space in a String. ex)
-	 * newLineToSpace("\r\ntest") => " test"
+	 * newLineToSpace("\r\ntest") &ge; " test"
 	 * 
 	 * @param str
 	 *            the String to convert
@@ -1870,8 +1866,8 @@ public class StringUtil {
 
 	/**
 	 * Returns empty string if the given String is null, returns given String if
-	 * not. ex) nullToEmpty("test") => "test" String test = null;
-	 * nullToEmpty(test) => ""
+	 * not. ex) nullToEmpty("test") &ge; "test" String test = null;
+	 * nullToEmpty(test) &ge; ""
 	 * 
 	 * @param str
 	 *            the String to check
@@ -1887,14 +1883,13 @@ public class StringUtil {
 
 	/**
 	 * Converts double to String with the given format. ex)
-	 * numberFormat(12345.67d, "###,###.#") => "12,345.7"
+	 * numberFormat(12345.67d, "###,###.#") &ge; "12,345.7"
 	 * 
 	 * @param d
 	 *            the double value to convert
 	 * @param format
 	 *            decimal format for conversion
 	 * @return the converted string
-	 * @deprecated Use @link{@link NumberUtils#formatNumber(double, String)}
 	 */
 	@Deprecated
 	public static String numberFormat(double d, String format) {
@@ -1904,14 +1899,13 @@ public class StringUtil {
 
 	/**
 	 * Converts float to String with the given format. ex)
-	 * numberFormat(12345.67f, "###,###.#") => "12,345.7"
+	 * numberFormat(12345.67f, "###,###.#") &ge; "12,345.7"
 	 * 
 	 * @param f
 	 *            the float value to convert
 	 * @param format
 	 *            decimal format for conversion
 	 * @return the converted string
-	 * @deprecated Use @link{@link NumberUtils#formatNumber(float, String)}
 	 */
 	@Deprecated
 	public static String numberFormat(float f, String format) {
@@ -1921,14 +1915,13 @@ public class StringUtil {
 
 	/**
 	 * Converts int to String with the given format. ex) numberFormat(12345,
-	 * "###,###") => "12,345"
+	 * "###,###") &ge; "12,345"
 	 * 
 	 * @param i
 	 *            the int value to convert
 	 * @param format
 	 *            decimal format for conversion
 	 * @return the converted string
-	 * @deprecated Use @link{@link NumberUtils#formatNumber(int, String)}
 	 */
 	@Deprecated
 	public static String numberFormat(int i, String format) {
@@ -1938,14 +1931,13 @@ public class StringUtil {
 
 	/**
 	 * Converts long to String with the given format. ex)
-	 * numberFormat(12345.67L, "###,###.#") => "12,345.7"
+	 * numberFormat(12345.67L, "###,###.#") &ge; "12,345.7"
 	 * 
 	 * @param l
 	 *            the long value to convert
 	 * @param format
 	 *            decimal format for conversion
 	 * @return the converted string
-	 * @deprecated Use @link{@link NumberUtils#formatNumber(long, String)}
 	 */
 	@Deprecated
 	public static String numberFormat(long l, String format) {
@@ -1955,14 +1947,13 @@ public class StringUtil {
 
 	/**
 	 * Converts short to String with the given format. ex) numberFormat(12345,
-	 * "###,###") => "12,345"
+	 * "###,###") &ge; "12,345"
 	 * 
 	 * @param s
 	 *            the short value to convert
 	 * @param format
 	 *            decimal format for conversion
 	 * @return the converted string
-	 * @deprecated Use @link{@link NumberUtils#formatNumber(short, String)}
 	 */
 	@Deprecated
 	public static String numberFormat(short s, String format) {
@@ -1972,9 +1963,9 @@ public class StringUtil {
 
 	/**
 	 * Returns the default Object if the given Object is null. ex) String test =
-	 * null; System.out.println(nvl(test, "NULL TEST")) => "NULL TEST"
+	 * null; System.out.println(nvl(test, "NULL TEST")) &ge; "NULL TEST"
 	 * 
-	 * String test = "test"; System.out.println(nvl(test, "NULL TEST")) =>
+	 * String test = "test"; System.out.println(nvl(test, "NULL TEST")) &ge;
 	 * "test"
 	 * 
 	 * @param inputObject
@@ -1992,10 +1983,10 @@ public class StringUtil {
 
 	/**
 	 * Returns the default Object if the given Object is null. ex) String test =
-	 * null; System.out.println(nullToObject(test, "NULL TEST")) => "NULL TEST"
+	 * null; System.out.println(nullToObject(test, "NULL TEST")) &ge; "NULL TEST"
 	 * 
 	 * String test = "test"; System.out.println(nullToObject(test, "NULL TEST"))
-	 * => "test"
+	 * &ge; "test"
 	 * 
 	 * @param obj
 	 *            the Object to check
@@ -2010,9 +2001,9 @@ public class StringUtil {
 
 	/**
 	 * Returns the default String if the given String is null. ex) String test =
-	 * null; System.out.println(nvl(test, "NULL TEST")) => "NULL TEST"
+	 * null; System.out.println(nvl(test, "NULL TEST")) &ge; "NULL TEST"
 	 * 
-	 * String test = "test"; System.out.println(nvl(test, "NULL TEST")) =>
+	 * String test = "test"; System.out.println(nvl(test, "NULL TEST")) &ge;
 	 * "test"
 	 * 
 	 * @param inputString
@@ -2030,7 +2021,7 @@ public class StringUtil {
 
 	/**
 	 * Gets the String with a specified character. Pad to a size of size ex)
-	 * padding(5, 'e') => "eeeee"
+	 * padding(5, 'e') &ge; "eeeee"
 	 * 
 	 * @param size
 	 *            the length to pad to
@@ -2053,7 +2044,7 @@ public class StringUtil {
 
 	/**
 	 * Gets the String with a specified character. Pad to a size of size ex)
-	 * repeat(5, 'e') => "eeeee"
+	 * repeat(5, 'e') &ge; "eeeee"
 	 * 
 	 * @param size
 	 *            the number of repeat
@@ -2101,7 +2092,7 @@ public class StringUtil {
 	}
 
 	/**
-	 * Normalize the path String. ex) pathClean("../aaaa\\bbbb\\cccc\\dddd") =>
+	 * Normalize the path String. ex) pathClean("../aaaa\\bbbb\\cccc\\dddd") &ge;
 	 * "aaaa/bbbb/cccc/dddd"
 	 * 
 	 * @param path
@@ -2134,7 +2125,7 @@ public class StringUtil {
 
 	/**
 	 * Compare both path String after nomalization. ex)
-	 * pathEquals("../aaaa\\bbbb\\cccc\\dddd", "aaaa/bbbb/cccc/dddd") => true
+	 * pathEquals("../aaaa\\bbbb\\cccc\\dddd", "aaaa/bbbb/cccc/dddd") &ge; true
 	 * 
 	 * @param path1
 	 *            the path String to compare
@@ -2180,7 +2171,7 @@ public class StringUtil {
 
 	/**
 	 * Removes all occurrences of a character from within the source string. ex)
-	 * removeChar("ABBBBBC", 'B') => "AC"
+	 * removeChar("ABBBBBC", 'B') &ge; "AC"
 	 * 
 	 * @param str
 	 *            the source String to search
@@ -2198,7 +2189,7 @@ public class StringUtil {
 	 * Removes all occurrences of specified characters from within the source
 	 * string.<br>
 	 * specified characters : + { '/', '-', ':', ',', '.', '%' }<br>
-	 * ex) removeCharAll("test/-") => "test"
+	 * ex) removeCharAll("test/-") &ge; "test"
 	 * 
 	 * @param str
 	 *            the source String to search
@@ -2214,7 +2205,7 @@ public class StringUtil {
 	/**
 	 * Removes all occurrences of given chars from within the source string.<br>
 	 * ex) char[] ch = new char[2]; ch[0] = 'b'; ch[1] = 'z';
-	 * removeCharAll("AbbzzB", ch)) => "AB"
+	 * removeCharAll("AbbzzB", ch)) &ge; "AB"
 	 * 
 	 * @param str
 	 *            the source String to search
@@ -2250,7 +2241,7 @@ public class StringUtil {
 	/**
 	 * Removes all occurrences of given chars from within the source string.<br>
 	 * ex) char[] ch = new char[2]; ch[0] = 'b'; ch[1] = 'z';
-	 * deleteAny("AbbzzB", ch)) => "AB"
+	 * deleteAny("AbbzzB", ch)) &ge; "AB"
 	 * 
 	 * @param str
 	 *            the source String to search
@@ -2264,7 +2255,7 @@ public class StringUtil {
 
 	/**
 	 * Removes all occurrences of a character from within the source string. ex)
-	 * deleteAny("ABBBBBC", 'B') => "AC"
+	 * deleteAny("ABBBBBC", 'B') &ge; "AC"
 	 * 
 	 * @param str
 	 *            the source String to search
@@ -2424,7 +2415,7 @@ public class StringUtil {
 
 	/**
 	 * Replaces all occurrences of a String within another String. ex)
-	 * replacePattern("abaa", "aba", "bab") => "baba"
+	 * replacePattern("abaa", "aba", "bab") &gt; "baba"
 	 * 
 	 * @param str
 	 *            text to search and replace in, may be null
@@ -2434,7 +2425,7 @@ public class StringUtil {
 	 *            the String to replace it with, may be null
 	 * @return the text with any replacements processed, null if null String
 	 *         input
-	 * @deprecated Use {@link #replaceAll(String, String, String) 
+	 * @deprecated Use {@link #replaceAll(String, String, String)} 
 	 */
 	@Deprecated
 	public static String replacePattern(String str, String replacedStr,
@@ -2513,7 +2504,7 @@ public class StringUtil {
 	/**
 	 * Reverses a String as per {@link StringBuffer#reverse()}.
 	 * 
-	 * <A code>null</code> String returns <code>null</code>.
+	 * <code>null</code> String returns <code>null</code>.
 	 * 
 	 * @param str
 	 *            the String to reverse, may be null
@@ -2527,7 +2518,7 @@ public class StringUtil {
 	}
 
 	/**
-	 * Gets the rightmost len characters of a String. ex) right("1234567", 3) =>
+	 * Gets the rightmost len characters of a String. ex) right("1234567", 3) &ge;
 	 * "567"
 	 * 
 	 * @param str
@@ -2636,7 +2627,7 @@ public class StringUtil {
 
 	/**
 	 * Splits the provided text into an array, separator specified. ex)
-	 * split("aaVbbVcc", 'V') => {"aa", "bb", "cc"}
+	 * split("aaVbbVcc", 'V') &ge; {"aa", "bb", "cc"}
 	 * 
 	 * @param str
 	 *            the String to parse
@@ -2676,7 +2667,7 @@ public class StringUtil {
 
 	/**
 	 * Splits the leftmost len characters of a String with ellipsis. ex)
-	 * splitHead("12345678", 3) => "123..."
+	 * splitHead("12345678", 3) &ge; "123..."
 	 * 
 	 * @param str
 	 *            the String to get the leftmost characters from, may be null
@@ -2698,7 +2689,7 @@ public class StringUtil {
 
 	/**
 	 * substring the leftmost len characters of a String with ellipsis. ex)
-	 * abbreviateFromLeft("12345678", 3) => "123..."
+	 * abbreviateFromLeft("12345678", 3) &ge; "123..."
 	 * 
 	 * @param str
 	 *            the String to get the leftmost characters from, may be null
@@ -2739,7 +2730,7 @@ public class StringUtil {
 
 	/**
 	 * Splits the leftmost len characters of a String with ellipsis. ex)
-	 * splitTail("12345678", 3) => "...678"
+	 * splitTail("12345678", 3) &ge; "...678"
 	 * 
 	 * @param str
 	 *            the String to get the rightmost characters from, may be null
@@ -2761,7 +2752,7 @@ public class StringUtil {
 
 	/**
 	 * substring the rightmost len characters of a String with ellipsis. ex)
-	 * abbreviateFromRight("12345678", 3) => "...678"
+	 * abbreviateFromRight("12345678", 3) &ge; "...678"
 	 * 
 	 * @param str
 	 *            the String to get the rightmost characters from, may be null
@@ -2781,7 +2772,7 @@ public class StringUtil {
 
 	/**
 	 * It converts the string representation of a number to integer type (eg.
-	 * '27' -> 27)
+	 * '27' &gt; 27)
 	 * 
 	 * <pre>
 	 * StringUtil.string2integer('14') 	= 14
@@ -2790,7 +2781,6 @@ public class StringUtil {
 	 * @param str
 	 *            string representation of a number
 	 * @return integer integer type of string
-	 * @deprecated Use @link {@link NumberUtils#stringToInt(String)}
 	 */
 	@Deprecated
 	public static int string2integer(String str) {
@@ -2805,7 +2795,6 @@ public class StringUtil {
 	 * @param str
 	 *            the String value to convert
 	 * @return the converted BigDecimal
-	 * @deprecated Use @link {@link NumberUtils#stringToBigDecimal(String)}
 	 */
 	@Deprecated
 	public static BigDecimal stringToBigDecimal(String str) {
@@ -2825,8 +2814,6 @@ public class StringUtil {
 	 * @param len
 	 *            the length of str from pos
 	 * @return the converted BigDecimal
-	 * @deprecated Use @link
-	 *             {@link NumberUtils#substringToBigDecimal(String, int, int)}
 	 */
 	@Deprecated
 	public static BigDecimal stringToBigDecimal(String str, int pos, int len) {
@@ -2839,7 +2826,7 @@ public class StringUtil {
 	}
 
 	/**
-	 * Converts UniCode String to hex code ex) stringToHex("123") =>
+	 * Converts UniCode String to hex code ex) stringToHex("123") &ge;
 	 * "003100320033"
 	 * 
 	 * @param str
@@ -2864,12 +2851,11 @@ public class StringUtil {
 	}
 
 	/**
-	 * Converts String to int ex) stringToNumn("123") => 123
+	 * Converts String to int ex) stringToNumn("123") &ge; 123
 	 * 
 	 * @param str
 	 *            the String to convert
 	 * @return the converted int value
-	 * @deprecated Use @link {@link NumberUtils#stringToInt(String)}
 	 */
 	@Deprecated
 	public static int stringToNumn(String str) {
@@ -2881,7 +2867,7 @@ public class StringUtil {
 
 	/**
 	 * Converts String to int from a position ex) stringToNumn("123456789", 5,
-	 * 3) => 678
+	 * 3) &ge; 678
 	 * 
 	 * @param str
 	 *            the String value to convert
@@ -2890,7 +2876,6 @@ public class StringUtil {
 	 * @param len
 	 *            the length of str from pos
 	 * @return the converted int value
-	 * @deprecated Use @link {@link NumberUtils#substringToInt(String, int, int)}
 	 */
 	@Deprecated
 	public static int stringToNumn(String str, int pos, int len) {
@@ -2904,7 +2889,7 @@ public class StringUtil {
 
 	/**
 	 * Converts 10 digit String to business number format(Korean). ex)
-	 * toBusinessNoPattern("1111111111") => "111-11-11111"
+	 * toBusinessNoPattern("1111111111") &ge; "111-11-11111"
 	 * 
 	 * @param str
 	 *            the String value to convert
@@ -2924,7 +2909,7 @@ public class StringUtil {
 
 	/**
 	 * Splits the provided text into an array, separator specified. ex) String[]
-	 * test; test = tokenizeToStringArray("aaa,bbb,ccc") => test[0]="aaa",
+	 * test; test = tokenizeToStringArray("aaa,bbb,ccc") &ge; test[0]="aaa",
 	 * test[1]="bbb"...
 	 * 
 	 * @param str
@@ -2937,7 +2922,7 @@ public class StringUtil {
 
 	/**
 	 * Splits the provided text into an array, separator specified. ex) String[]
-	 * test; test = tokenizeToStringArray("aaa,bbb,ccc", ',') => test[0]="aaa",
+	 * test; test = tokenizeToStringArray("aaa,bbb,ccc", ',') &ge; test[0]="aaa",
 	 * test[1]="bbb"...
 	 * 
 	 * @param str
@@ -2953,7 +2938,7 @@ public class StringUtil {
 
 	/**
 	 * Splits the provided text into an array, separator specified. ex) String[]
-	 * test; test = tokenizeToStringArray("aaa.bbb.ccc.ddd", "."); =>
+	 * test; test = tokenizeToStringArray("aaa.bbb.ccc.ddd", "."); &ge;
 	 * test[0]="aaa", test[1]="bbb"...
 	 * 
 	 * @param str
@@ -2968,7 +2953,7 @@ public class StringUtil {
 
 	/**
 	 * Splits the provided text into an array, separator specified. ex) String[]
-	 * test; test = tokenizeToStringArray("aaa.bbb.ccc.ddd", ".", true, true) =>
+	 * test; test = tokenizeToStringArray("aaa.bbb.ccc.ddd", ".", true, true) &ge;
 	 * test[0]="aaa", test[1]="bbb"...
 	 * 
 	 * @param str
@@ -3007,7 +2992,7 @@ public class StringUtil {
 	}
 
 	/**
-	 * Converts a first character to lower case. ex) toLowercase("ABCD") =>
+	 * Converts a first character to lower case. ex) toLowercase("ABCD") &ge;
 	 * "aBCD"
 	 * 
 	 * @param str
@@ -3022,7 +3007,7 @@ public class StringUtil {
 
 	/**
 	 * Converts a first character to lower case. ex)
-	 * toLowerCaseFirstLetter("ABCD") => "aBCD"
+	 * toLowerCaseFirstLetter("ABCD") &ge; "aBCD"
 	 * 
 	 * @param str
 	 *            input string
@@ -3035,7 +3020,7 @@ public class StringUtil {
 
 	/**
 	 * Converts 13 digit String to social security number format(Korean). ex)
-	 * toSocialSecuNoPattern("1111111111111") => "111111=1111111"
+	 * toSocialSecuNoPattern("1111111111111") &ge; "111111=1111111"
 	 * 
 	 * @param str
 	 *            the String value to convert
@@ -3134,7 +3119,7 @@ public class StringUtil {
 	}
 
 	/**
-	 * Converts a first character to uppper case. ex) toUpperCase("abcd") =>
+	 * Converts a first character to uppper case. ex) toUpperCase("abcd") &ge;
 	 * "Abcd"
 	 * 
 	 * @param str
@@ -3143,25 +3128,25 @@ public class StringUtil {
 	 * @deprecated Use {@link #toUpperCaseFirstLetter(String)}
 	 */
 	@Deprecated
-	public static String toUpperCase(String inputString) {
-		return changeFirstCharacterCase(true, inputString);
+	public static String toUpperCase(String str) {
+		return changeFirstCharacterCase(true, str);
 	}
 
 	/**
 	 * Converts a first character to uppper case. ex)
-	 * toUpperCaseFirstLetter("abcd") => "Abcd"
+	 * toUpperCaseFirstLetter("abcd") &ge; "Abcd"
 	 * 
 	 * @param str
 	 *            input string
 	 * @return the converted string
 	 */
-	public static String toUpperCaseFirstLetter(String inputString) {
-		return changeFirstCharacterCase(true, inputString);
+	public static String toUpperCaseFirstLetter(String str) {
+		return changeFirstCharacterCase(true, str);
 	}
 
 	/**
 	 * Converts digit String to zip code format(Korean). ex)
-	 * toZipCodePattern("111111") => "111-111"
+	 * toZipCodePattern("111111") &ge; "111-111"
 	 * 
 	 * @param str
 	 *            the String value to convert
@@ -3207,7 +3192,7 @@ public class StringUtil {
 
 	/**
 	 * Compares two Strings with whitespace normalized by using trim ex)
-	 * trimEquals("     test     ", "test") => true
+	 * trimEquals("     test     ", "test") &ge; true
 	 * 
 	 * @param str1
 	 *            the first String, may be null

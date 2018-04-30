@@ -10,8 +10,7 @@ import org.springframework.http.HttpOutputMessage;
 /**
  * HttpOutputMessage의 Body를 래핑 처리할 수 있는 클래스
  *
- * @author DongMan Kwon <dmkwon@intellicode.co.kr>
- * @see {@link HttpMessage}, {@link HttpOutputMessage}
+ * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  */
 public class BHiveHttpOutputMessage implements HttpMessage, HttpOutputMessage {
 
@@ -47,6 +46,7 @@ public class BHiveHttpOutputMessage implements HttpMessage, HttpOutputMessage {
 
 	/**
 	 * 사용자가 임의로 변경한 OutputStream body를 설정 (예. OutputStream을 CipherOutputStream으로 래핑)
+	 * @param customBody OutputStream object
 	 */
 	public void setBody(OutputStream customBody) {
 		this.customBody = customBody;

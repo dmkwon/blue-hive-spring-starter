@@ -18,7 +18,7 @@ import org.slf4j.LoggerFactory;
  * [설정방법]
  * sqlSessionFactory 빈에 typeHandlersPackage 프라퍼티등으로 설정
  *   
- * @author DongMan Kwon <dmkwon@intellicode.co.kr>
+ * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  */
 public class BooleanYNTypeHandler extends BaseTypeHandler<Boolean> {
 

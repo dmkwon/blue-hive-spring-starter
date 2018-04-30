@@ -36,10 +36,10 @@ import org.springframework.util.StringUtils;
 
 
 /**
- * Spring의 기본 {@link org.springframework.http.converter.FormHttpMessageConverter} 계열이 MultiValueMap<String, ?>을 변환하여서
- * Map<String, ?>의 변환을 지원하기 위한 컨버터
+ * Spring의 기본 {@link org.springframework.http.converter.FormHttpMessageConverter} 계열이 MultiValueMap&lt;String, ?&gt;을 변환하여서
+ * Map&lt;String, ?&gt;의 변환을 지원하기 위한 컨버터
  *
- * @author DongMan Kwon <dmkwon@intellicode.co.kr>
+ * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  *
  * @since 3.0
  * @see FormHttpMessageConverter
@@ -81,6 +81,7 @@ public class BHiveMapHttpMessageConverter implements HttpMessageConverter<Map<St
 	 * Set the default character set to use for reading and writing form data when
 	 * the request or response Content-Type header does not explicitly specify it.
 	 * <p>By default this is set to "UTF-8".
+	 * @param charset Character Set
 	 */
 	public void setCharset(Charset charset) {
 		this.charset = charset;
@@ -101,6 +102,7 @@ public class BHiveMapHttpMessageConverter implements HttpMessageConverter<Map<St
 
 	/**
 	 * Set the list of {@link MediaType} objects supported by this converter.
+	 * @param supportedMediaTypes the MediaType list to use
 	 */
 	public void setSupportedMediaTypes(List<MediaType> supportedMediaTypes) {
 		this.supportedMediaTypes = supportedMediaTypes;
@@ -113,6 +115,7 @@ public class BHiveMapHttpMessageConverter implements HttpMessageConverter<Map<St
 	/**
 	 * Set the message body converters to use. These converters are used to
 	 * convert objects to MIME parts.
+	 * @param partConverters the HttpMessageConverter list to use
 	 */
 	public void setPartConverters(List<HttpMessageConverter<?>> partConverters) {
 		Assert.notEmpty(partConverters, "'partConverters' must not be empty");
@@ -122,6 +125,7 @@ public class BHiveMapHttpMessageConverter implements HttpMessageConverter<Map<St
 	/**
 	 * Add a message body converter. Such a converter is used to convert objects
 	 * to MIME parts.
+	 * @param partConverter the HttpMessageConverter to use
 	 */
 	public void addPartConverter(HttpMessageConverter<?> partConverter) {
 		Assert.notNull(partConverter, "'partConverter' must not be null");
@@ -290,6 +294,7 @@ public class BHiveMapHttpMessageConverter implements HttpMessageConverter<Map<St
 	 * Generate a multipart boundary.
 	 * <p>The default implementation returns a random boundary.
 	 * Can be overridden in subclasses.
+	 * @return byte[] byte array
 	 */
 	protected byte[] generateMultipartBoundary() {
 		byte[] boundary = new byte[this.random.nextInt(11) + 30];

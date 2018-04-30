@@ -10,8 +10,7 @@ import org.springframework.http.HttpMessage;
 /**
  * HttpInputMessage의 Body를 래핑 처리할 수 있는 클래스
  *
- * @author DongMan Kwon <dmkwon@intellicode.co.kr>
- * @see {@link HttpMessage}, {@link HttpInputMessage}
+ * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  */
 public class BHiveHttpInputMessage implements HttpMessage, HttpInputMessage {
 
@@ -47,6 +46,7 @@ public class BHiveHttpInputMessage implements HttpMessage, HttpInputMessage {
 
 	/**
 	 * 사용자가 임의로 변경한 InputStream body를 설정 (예. InputStream을 CipherInputStream으로 래핑)
+	 * @param customBody InputStream object
 	 */
 	public void setBody(InputStream customBody) {
 		this.customBody = customBody;

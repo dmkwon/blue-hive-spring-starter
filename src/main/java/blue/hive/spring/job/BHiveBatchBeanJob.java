@@ -24,7 +24,7 @@ import blue.hive.util.anyframe.StringUtil;
  * &lt;/bean&gt;
  * </pre>
  * 
- * @author DongMan Kwon <dmkwon@intellicode.co.kr>
+ * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  */
 public class BHiveBatchBeanJob implements InitializingBean, BHiveIntervalCallable {
 

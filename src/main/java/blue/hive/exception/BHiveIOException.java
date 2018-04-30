@@ -3,7 +3,7 @@ package blue.hive.exception;
 /**
  * IO 처리 관련 예외
  * 
- * @author DongMan Kwon <dmkwon@intellicode.co.kr>
+ * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  */
 public class BHiveIOException extends BHiveRuntimeException {
 

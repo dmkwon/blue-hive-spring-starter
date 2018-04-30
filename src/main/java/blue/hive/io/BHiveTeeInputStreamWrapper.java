@@ -10,7 +10,7 @@ import org.springframework.util.StringUtils;
 /**
  * {@link TeeInputStream}을 이용하여 InputStream의 읽은 내용을 Tee처리하는 Wrapper
  *
- * @author DongMan Kwon <dmkwon@intellicode.co.kr>
+ * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  */
 public class BHiveTeeInputStreamWrapper {
 
@@ -35,7 +35,7 @@ public class BHiveTeeInputStreamWrapper {
 
 	/**
 	 * @return 입력내용 String (UTF-8)
-	 * @throws UnsupportedEncodingException
+	 * @throws UnsupportedEncodingException unsupported encoding exception
 	 */
 	public String getTeeInputString() throws UnsupportedEncodingException {
 		return StringUtils.trimTrailingWhitespace(this.baos.toString("UTF-8"));

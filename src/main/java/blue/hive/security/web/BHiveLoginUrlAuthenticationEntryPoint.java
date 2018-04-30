@@ -31,7 +31,7 @@ import org.springframework.util.StringUtils;
  * 
  * Ajax일때는 ResponseBody로 Redirect Callback Command를 전송
  * 
- * @author DongMan Kwon <dmkwon@intellicode.co.kr>
+ * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  * 
  * 
  * Used by the {@link ExceptionTranslationFilter} to commence a form login
@@ -189,6 +189,10 @@ public class BHiveLoginUrlAuthenticationEntryPoint implements AuthenticationEntr
 	/**
 	 * Builds a URL to redirect the supplied request to HTTPS. Used to redirect the current request
 	 * to HTTPS, before doing a forward to the login page.
+	 * @param request Http Servlet Request
+	 * @return url String value
+	 * @throws IOException throw io exception
+	 * @throws ServletException throw servlet exception
 	 */
 	protected String buildHttpsRedirectUrlForRequest(HttpServletRequest request)
 			throws IOException, ServletException {
@@ -220,6 +224,7 @@ public class BHiveLoginUrlAuthenticationEntryPoint implements AuthenticationEntr
 	 * and the incoming request for the protected resource which triggered the interceptor was not already
 	 * <code>https</code>, then the client will first be redirected to an https URL, even if <tt>serverSideRedirect</tt>
 	 * is set to <tt>true</tt>.
+	 * @param forceHttps boolean https setting true|false
 	 */
 	public void setForceHttps(boolean forceHttps) {
 		this.forceHttps = forceHttps;

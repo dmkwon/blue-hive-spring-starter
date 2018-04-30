@@ -17,7 +17,7 @@ import blue.hive.type.BHiveValueEnum;
 /**
  * Enum Util
  * 
- * @author DongMan Kwon <dmkwon@intellicode.co.kr>
+ * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  */
 public class BHiveEnumUtil {
 
@@ -67,7 +67,7 @@ public class BHiveEnumUtil {
 	}	
 
 	/**
-	 * Enum의 키문자열 목록을 얻어온다. (예: [MyEnum.A, MyEnum.B] => ["A", "B"])
+	 * Enum의 키문자열 목록을 얻어온다. (예: [MyEnum.A, MyEnum.B] &ge; ["A", "B"])
 	 * @param elementType Enum의 타입
 	 * @return Enum의 키값 문자열 목록
 	 */
@@ -75,7 +75,7 @@ public class BHiveEnumUtil {
 		return getEnumKeyStrings(elementType, true);
 	}
 	/**
-	 * Enum의 키문자열 목록을 얻어온다. (예: [MyEnum.A, MyEnum.B] => ["A", "B"])
+	 * Enum의 키문자열 목록을 얻어온다. (예: [MyEnum.A, MyEnum.B] &ge; ["A", "B"])
 	 * @param elementType Enum의 타입
 	 * @param excludeNotSet NOTSET값 제외
 	 * @return Enum의 키값 문자열 목록
@@ -94,7 +94,7 @@ public class BHiveEnumUtil {
 
 	/**
 	 * Enum, FmsEnum의 값 목록을 얻어온다. (예: [1, 2])
-	 * @param elementType Enum, FmsEnum<?> 타입
+	 * @param elementType Enum, FmsEnum&lt;?&gt; 타입
 	 * @return Enum, FmsEnum의 값 목록
 	 */
 	public static <E extends Enum<E>, T> List<T> getEnumValues(Class<E> elementType) {
@@ -102,7 +102,7 @@ public class BHiveEnumUtil {
 	}
 	/**
 	 * Enum, FmsEnum의 값 목록을 얻어온다. (예: [1, 2])
-	 * @param elementType Enum, FmsEnum<?> 타입
+	 * @param elementType Enum, FmsEnum&lt;?&gt; 타입
 	 * @param excludeNotSet NOTSET값 제외
 	 * @return Enum, FmsEnum의 값 목록
 	 */
@@ -110,7 +110,7 @@ public class BHiveEnumUtil {
 		return convertToEnumValues(Arrays.asList(elementType.getEnumConstants()), excludeNotSet);
 	}
 	/**
-	 * Enum, FmsEnum의 값 목록을 얻어온다. (예: [A, B] => [1, 2])
+	 * Enum, FmsEnum의 값 목록을 얻어온다. (예: [A, B] &ge; [1, 2])
 	 * @param enumArray enum 목록
 	 * @param excludeNotSet NOTSET값 제외
 	 * @return Enum, FmsEnum의 값 목록
@@ -134,7 +134,7 @@ public class BHiveEnumUtil {
 	
 	/**
 	 * Enum, FmsEnum의 값문자열 목록을 얻어온다. (예: ["1", "2"])
-	 * @param elementType Enum, FmsEnum<?> 타입
+	 * @param elementType Enum, FmsEnum&lt;?&gt; 타입
 	 * @return Enum, FmsEnum의 값 목록
 	 */
 	public static <E extends Enum<E>> List<String> getEnumValueStrings(Class<E> elementType) {
@@ -142,7 +142,7 @@ public class BHiveEnumUtil {
 	}
 	/**
 	 * Enum, FmsEnum의 값문자열 목록을 얻어온다. (예: ["1", "2"])
-	 * @param elementType Enum, FmsEnum<?> 타입
+	 * @param elementType Enum, FmsEnum&lt;?&gt; 타입
 	 * @param excludeNotSet NOTSET값 제외
 	 * @return Enum, FmsEnum의 값 목록
 	 */
@@ -150,7 +150,7 @@ public class BHiveEnumUtil {
 		return convertToEnumValueStrings(Arrays.asList(elementType.getEnumConstants()), excludeNotSet);
 	}
 	/**
-	 * Enum, FmsEnum의 값문자열 목록을 얻어온다. (예: [A, B] => ["1", "2"])
+	 * Enum, FmsEnum의 값문자열 목록을 얻어온다. (예: [A, B] &ge; ["1", "2"])
 	 * @param enumArray enum 목록
 	 * @param excludeNotSet NOTSET값 제외
 	 * @return Enum, FmsEnum의 값 목록
@@ -172,7 +172,7 @@ public class BHiveEnumUtil {
 	}
 	
 	/**
-	 * Enum, FmsEnum의 값문자열 목록을 얻어온다. (예: [A, B] => ["1", "2"])
+	 * Enum, FmsEnum의 값문자열 목록을 얻어온다. (예: [A, B] &ge; ["1", "2"])
 	 * @param enumArray enum 목록
 	 * @param excludeNotSet NOTSET값 제외
 	 * @return Enum, FmsEnum의 값 목록
@@ -206,7 +206,7 @@ public class BHiveEnumUtil {
 		return convertToEnumKeyValueMap(Arrays.asList(elementType.getEnumConstants()), excludeNotSet);
 	}
 	/**
-	 * Enum의 키-값 Map을 얻는다. (예: [MyEnum.Blue, MyEnum.Red] => [MyEnum.Blue:1, MyEnum.Red:2] )
+	 * Enum의 키-값 Map을 얻는다. (예: [MyEnum.Blue, MyEnum.Red] &ge; [MyEnum.Blue:1, MyEnum.Red:2] )
 	 * @param enumArray enum 목록
 	 * @param excludeNotSet NOTSET값 제외 
 	 * @return Enum의 키문자열-값 Map
@@ -350,8 +350,8 @@ public class BHiveEnumUtil {
 	
 	/**
 	 * Enum의 value값에서 Enum 값을 얻는다 
-	 * (예: [MyEnum.Blue:1, MyEnum.Red:2]일때: 2, "2", "Red" -> MyEnum.Red 반환)
-	 * 반대로 MyEnum.Red => 2로 변환은 MyEnum.Red.getValue()로 획득. AbleValueEnum<T>에 구현
+	 * (예: [MyEnum.Blue:1, MyEnum.Red:2]일때: 2, "2", "Red" &gt; MyEnum.Red 반환)
+	 * 반대로 MyEnum.Red &ge; 2로 변환은 MyEnum.Red.getValue()로 획득. AbleValueEnum&lt;T&gt;에 구현
 	 * @param elementType Enum의 타입
 	 * @param value 변환할 Enum값
 	 * @return 변환된 Enum 값. Parse에 실패하면 null
@@ -373,7 +373,7 @@ public class BHiveEnumUtil {
 	
 	/**
 	 * Enum의 value 값을 얻는다 
-	 * (예: [MyEnum.Blue:1, MyEnum.Red:2]일때: 2, "2", "Red" -> "2" 반환)
+	 * (예: [MyEnum.Blue:1, MyEnum.Red:2]일때: 2, "2", "Red" &gt; "2" 반환)
 	 * @param elementType Enum의 타입
 	 * @param value 변환할 Enum값
 	 * @return 변환된 Enum 값의 value 값. Parse에 실패하면 null
@@ -389,7 +389,7 @@ public class BHiveEnumUtil {
 	
 	/**
 	 * Enum의 value 값을 얻는다 
-	 * (예: [MyEnum.Blue:1, MyEnum.Red:2]일때: 2, "2", "Red" -> "Red" 반환)
+	 * (예: [MyEnum.Blue:1, MyEnum.Red:2]일때: 2, "2", "Red" &gt; "Red" 반환)
 	 * @param elementType Enum의 타입
 	 * @param value 변환할 Enum값
 	 * @return 변환된 Enum 값의 value 값. Parse에 실패하면 null

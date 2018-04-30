@@ -33,7 +33,7 @@ import blue.hive.spring.validation.BHiveObjectError;
  *
  * 주요 오픈소스의 Helper에서 제공되지 않는 일반적인 공통 함수 모음
  *
- * @author DongMan Kwon <dmkwon@intellicode.co.kr>
+ * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  */
 public class BHiveUtil {
 
@@ -54,7 +54,6 @@ public class BHiveUtil {
 
 	/**
 	 * Spring Active Profiles 획득 - 서버환경: local, dev, stage, real 중의 한개 값
-	 * Kwonyul 추가 : 각 개발자 개별 local-name profile도 가능하도록 수정함
 	 */
 	public static String getActiveServerProfile() {
 		List<String> activeProfiles = getActiveProfiles();
@@ -76,11 +75,6 @@ public class BHiveUtil {
 				if("test".equals(activeProfile)) {
 					return "test"; 
 				}
-			}
-			
-			if(activeProfiles.get(0).startsWith("local-")) {
-				logger.warn("getActiveProfile : Developer Local Profile - " + activeProfiles.get(0));
-				return activeProfiles.get(0);
 			} 
 		} 
 		
@@ -120,7 +114,7 @@ public class BHiveUtil {
 	/**
 	 * 현재메소드명 또는 호출자의 메소드명을 획득
 	 * @param upperDepth 0이면 현재메소드명, 1이상이면 상위 호출 depth 메소드명
-	 * @return 메소드명
+	 * @return String 메소드명
 	 */
 	public static String getStackTraceMethodName(final int upperDepth) {
 		final StackTraceElement[] steList = Thread.currentThread().getStackTrace();
@@ -148,9 +142,6 @@ public class BHiveUtil {
 	 * 주어진 객체를 JSON문자열로 Serialize (Jackson2 ObjectMapper 사용)
 	 * @param object 변환할 객체
 	 * @return JSON 문자열
-	 *
-	 * @see http://wiki.fasterxml.com/JacksonJsonViews
-	 * @see http://www.jroller.com/RickHigh/entry/working_with_jackson_json_views
 	 */
 	public static String toJson(Object object) {
 		return toJson(object, null);
@@ -160,10 +151,7 @@ public class BHiveUtil {
 	 * 주어진 객체를 JSON문자열로 Serialize (Jackson2 ObjectMapper 사용)
 	 * @param object 변환할 객체
 	 * @param serializationView Serialization에 사용할 View Class (<code>@JsonView</code> 참고)
-	 * @return JSON 문자열
-	 *
-	 * @see http://wiki.fasterxml.com/JacksonJsonViews
-	 * @see http://www.jroller.com/RickHigh/entry/working_with_jackson_json_views
+	 * @return String JSON 문자열
 	 */
 	public static String toJson(Object object, Class<?> serializationView) {
 		String json;
@@ -184,7 +172,7 @@ public class BHiveUtil {
 	 * 주어진 Json문자열을 객체 변환
 	 * @param json JSON문자열
 	 * @param valueType 획득할 객체타입
-	 * @return 변환된 객체
+	 * @return T 변환된 객체
 	 */
 	public static <T> T fromJson(String json, Class<T> valueType) {
 		ObjectMapper mapper = new BHiveObjectMapper();
@@ -201,7 +189,7 @@ public class BHiveUtil {
 	 * @param ex 메시지를 가져올 Throwable 예외
 	 * @param includeExceptionClassSimpleName 예외 클래스의 SimpleName을 포함?
 	 * @param includeCauseMessage Cuase의 메시지도 포함할 것인가?
-	 * @return ExceptionSimpleName: 메시지 (- CauseExceptionSimpleName: 메시지 - ...)
+	 * @return String ExceptionSimpleName: 메시지 (- CauseExceptionSimpleName: 메시지 - ...)
 	 */
 	public static String getMessageOfException(Throwable ex, boolean includeExceptionClassSimpleName, boolean includeCauseMessage) {
 		String message = ((includeExceptionClassSimpleName)? ex.getClass().getSimpleName() + ": " : "") + ex.getMessage();
@@ -218,7 +206,7 @@ public class BHiveUtil {
 	 * 예외 또는 예외 내부 Cause를 뒤져서 원하는 Type의 예외를 찾는다.
 	 * @param ex 예외
 	 * @param requiredType 예외 또는 예외내부Cause에서 찾아볼 예외 타입
-	 * @return
+	 * @return T inner exception object
 	 */
 	public static <T extends Exception> T findInnerException(Throwable ex, Class<? extends Throwable> requiredType) {
 		//		if(ex.getClass() == requiredType) {
@@ -235,7 +223,7 @@ public class BHiveUtil {
 	 * 예외 또는 예외 내부 Cause를 뒤져서 원하는 Type이 있는지를 확인한다.
 	 * @param ex 예외
 	 * @param requiredType 예외 또는 예외내부Cause에서 찾아볼 예외 타입
-	 * @return
+	 * @return Boolean inner exception 여부
 	 */
 	public static Boolean hasInnerException(Throwable ex, Class<? extends Throwable> requiredType) {
 		return findInnerException(ex, requiredType) != null;
@@ -245,9 +233,8 @@ public class BHiveUtil {
 	 * 에러 메시지 획득
 	 * @param errors 에러정보 객체 (BindingResult등...)
 	 * @param messageSource 메시지소스. 에러메시지 변환에 사용
-	 * @param locale 로케일. 에러메시지 국제화시 현재 로케일 (null이면 LocaleContextHolder에서 취득)
 	 * @param seperator 에러메시지간 구분자
-	 * @return 에러메시지
+	 * @return String 에러메시지
 	 */
 	public static String buildErrorMessage(Errors errors, MessageSource messageSource, String seperator) {
 		StringBuilder sb = new StringBuilder();
@@ -274,8 +261,6 @@ public class BHiveUtil {
 
 	private static String key = "";
 	protected final static String initialVector = "1234567890123456";
-
-
 
 	public static String encode(byte[] data) {
 		//

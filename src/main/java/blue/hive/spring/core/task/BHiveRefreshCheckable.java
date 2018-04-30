@@ -3,7 +3,7 @@ package blue.hive.spring.core.task;
 /**
  * Refresh Check를 지원하는 Interface
  * 
- * @author DongMan Kwon <dmkwon@intellicode.co.kr>
+ * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  */
 public interface BHiveRefreshCheckable {
 
