@@ -20,6 +20,8 @@ public class BHiveConvertUtil {
 
 	/**
 	 * 버퍼를 UTF-8 문자열로 변환 (Trim처리)
+	 * @param buf array of byte value
+	 * @return converted to String value
 	 */
 	public static String convertToString(byte[] buf) {
 		String s = new String(buf, Charset.forName("UTF-8"));
@@ -29,8 +31,8 @@ public class BHiveConvertUtil {
 
 	/**
 	 * 일반 Map을 RestTemplate의 FormHttpMessageConverter가 변환할 수 있는 MultiValueMap으로 변환
-	 * @param map
-	 * @return
+	 * @param map convert 할 Map object
+	 * @return MultiValueMap converted map object
 	 */
 	@SuppressWarnings("unchecked")
 	public static MultiValueMap<String, Object> convertToMultiValueMap(Map<String, ?> map) {

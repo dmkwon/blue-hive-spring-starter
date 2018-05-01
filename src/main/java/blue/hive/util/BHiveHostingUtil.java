@@ -27,7 +27,11 @@ public class BHiveHostingUtil {
 		return "";
 	}
 	
-	/** WEB Proxy를 통한 접근인가? */
+	/**
+	 *  WEB Proxy를 통한 접근인가? 
+	 *  @param request HttpServletRequest 객체
+	 *  @return boolean is proxy request 
+	 */
 	public static boolean isProxyRequest(HttpServletRequest request) {
 		String clientIP = request.getHeader("client-ip"); //L7을 통한경우 L7-WEB-WAS
 		String proxyClientIP = request.getHeader("Proxy-Client-IP");
@@ -38,7 +42,11 @@ public class BHiveHostingUtil {
 		return false;
 	}
 	
-	/** LocalHost, LocalIP로 접근 */
+	/** 
+	 * LocalHost, LocalIP로 접근 
+	 * @param request HttpServletRequest 객체
+	 * @return boolean is localhost request 
+	 */
 	public static boolean isLocalhostRequest(HttpServletRequest request) {
 		String remoteAddr = request.getRemoteAddr();
 		String localAddr = request.getLocalAddr();
@@ -51,7 +59,11 @@ public class BHiveHostingUtil {
 		return false;
 	}
 	
-	/** Client의 IP를 출력 */
+	/** 
+	 * Client의 IP를 출력
+	 * @param request HttpServletRequest 객체
+	 * @return String clientIp 정보 
+	 */
 	public static String getClientIP(HttpServletRequest request) {
 		String httpXForwardedFor = request.getHeader("HTTP_X_FORWARDED_FOR");
 		if(!StringUtil.isEmpty(httpXForwardedFor)) {

@@ -28,7 +28,10 @@ import blue.hive.validation.constraints.impl.BHiveAllowExtensionsForMultipartFil
 @ReportAsSingleViolation
 public @interface BHiveAllowExtensions {
 
-	/** 허용 확장자 목록 (comma-seperated) */
+	/** 
+	 * 허용 확장자 목록 (comma-seperated) 
+	 * @return 허용 확장자 목록
+	 */
 	String value(); //required property
 	
 	String message() default "{bhive.validation.constraint.BHiveallowextensions.message}";

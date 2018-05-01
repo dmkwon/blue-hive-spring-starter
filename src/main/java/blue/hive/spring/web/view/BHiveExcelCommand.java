@@ -24,6 +24,10 @@ import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.hssf.util.HSSFColor;
+import org.apache.poi.ss.usermodel.BorderStyle;
+import org.apache.poi.ss.usermodel.FillPatternType;
+import org.apache.poi.ss.usermodel.HorizontalAlignment;
+import org.apache.poi.ss.usermodel.VerticalAlignment;
 import org.apache.poi.ss.util.CellRangeAddress;
 import org.joda.time.DateTime;
 import org.slf4j.Logger;
@@ -52,13 +56,13 @@ import blue.hive.util.BHiveVOUtil;
  *
  * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  */
-@SuppressWarnings("rawtypes")
+
 public class BHiveExcelCommand {
 
 	protected final static Logger logger = LoggerFactory.getLogger(BHiveExcelCommand.class);
 
 	/** 모델에 담을때 사용하는 Key */
-	public final static String MODEL_KEY = "wideExcelCommand";
+	public final static String MODEL_KEY = "bHiveExcelCommand";
 
 	/** 확장자 */
 	public final static String EXTENSTION = ".xls";
@@ -91,9 +95,9 @@ public class BHiveExcelCommand {
 	protected String sheetName = "data sheet";
 
 	/** 출력할 데이터셋 */
-	protected List dataList = new ArrayList<Object>();
+	protected List<Object> dataList = new ArrayList<Object>();
 	/** 출력한 데이터 아이템의 메타정보 클래스. ExcelColumn Annotation으로 꾸미기 */
-	protected Class metadataClass;
+	protected Class<?> metadataClass;
 
 	/** 출력데이터의 가로,세로 병합을 처리하기 위한 병합처리모드 */
 	protected BHiveExcelMergeMode mergeMode = BHiveExcelMergeMode.NONE;
@@ -128,8 +132,13 @@ public class BHiveExcelCommand {
 	protected HttpServletResponse response;
 
 	////////////////////////////////////////////////////////////////////////////////
-	/** 생성자 */
-	public BHiveExcelCommand(List dataList, Class<?> metadataClass, MessageSource messageSource) {
+	/**
+	 * 생성자 
+	 * @param dataList 엑셀에 들어가 데이터
+	 * @param metadataClass metadata Class object
+	 * @param messageSource message source for i18n
+	 */
+	public BHiveExcelCommand(List<Object> dataList, Class<?> metadataClass, MessageSource messageSource) {
 		super();
 		this.dataList = dataList;
 		this.metadataClass = metadataClass;
@@ -146,7 +155,7 @@ public class BHiveExcelCommand {
 	 * @throws InvocationTargetException throw invocation target exception
 	 * @throws NoSuchMethodException throw no such method exception
 	 */
-	public void addCodeMap(String field, List codeDTList, String valueProp, String nameProp) throws IllegalAccessException, InvocationTargetException, NoSuchMethodException {
+	public void addCodeMap(String field, List<Object> codeDTList, String valueProp, String nameProp) throws IllegalAccessException, InvocationTargetException, NoSuchMethodException {
 		Map<String, String> fieldCodeMap = new HashMap<String, String>();
 		for (Object codeDT : codeDTList) {
 			String value = BeanUtils.getProperty(codeDT, valueProp);
@@ -174,9 +183,9 @@ public class BHiveExcelCommand {
 	 * @param font    font to use
 	 * @return HSSFCellStyle hssf cell style to use
 	 */
-	protected HSSFCellStyle createCustomCellStyle(short bgColor, short align, short valign, HSSFFont font) {
+	protected HSSFCellStyle createCustomCellStyle(short bgColor, HorizontalAlignment align, VerticalAlignment valign, HSSFFont font) {
 		HSSFCellStyle cellStyle = workbook.createCellStyle();
-		cellStyle.setFillPattern(HSSFCellStyle.SOLID_FOREGROUND);
+		cellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
 		cellStyle.setFillForegroundColor(bgColor);
 		cellStyle.setAlignment(align);
 		cellStyle.setVerticalAlignment(valign);
@@ -197,7 +206,7 @@ public class BHiveExcelCommand {
 	 * @param underline   under line to use
 	 * @return HSSFCellStyle hssf cell style to use
 	 */
-	protected HSSFCellStyle createCustomCellStyle(short bgColor, short align, short valign, short fontHeightInPoints, short fontColor, short boldWeight, byte underline) {
+	protected HSSFCellStyle createCustomCellStyle(short bgColor, HorizontalAlignment align, VerticalAlignment valign, short fontHeightInPoints, short fontColor, boolean boldWeight, byte underline) {
 		HSSFFont font = createFont(fontHeightInPoints, fontColor, boldWeight, null, underline);
 		return createCustomCellStyle(bgColor, align, valign, font);
 	}
@@ -209,7 +218,7 @@ public class BHiveExcelCommand {
 	 * @param valign  vertical align to use
 	 * @return HSSFCellStyle hssf cell style to use
 	 */
-	protected HSSFCellStyle createCustomCellStyle(short bgColor, short align, short valign) {
+	protected HSSFCellStyle createCustomCellStyle(short bgColor, HorizontalAlignment align, VerticalAlignment valign) {
 		return createCustomCellStyle(bgColor, align, valign, null);
 	}
 
@@ -217,16 +226,16 @@ public class BHiveExcelCommand {
 	 * 출력용 Font 생성
 	 * @param fontHeightInPoints  font height in points to use
 	 * @param fontColor   font color to use
-	 * @param boldWeight  boldweight to use
+	 * @param boldWeight  bold is or not?
 	 * @param fontName    font name to use
 	 * @param underline   under line to use
 	 * @return HSSFCellStyle hssf cell style to use
 	 */
-	private HSSFFont createFont(short fontHeightInPoints, short fontColor, short boldWeight, String fontName, byte underline/*HSSFFont.U_NONE*/) {
+	private HSSFFont createFont(short fontHeightInPoints, short fontColor, boolean boldWeight, String fontName, byte underline/*HSSFFont.U_NONE*/) {
 		HSSFFont font = workbook.createFont();
 		font.setFontHeightInPoints(fontHeightInPoints);
 		font.setColor(fontColor);
-		font.setBoldweight(boldWeight);
+		font.setBold(boldWeight);
 		if(!StringUtils.isEmpty(fontName)) {
 			font.setFontName(fontName);
 		} else {
@@ -242,7 +251,7 @@ public class BHiveExcelCommand {
 	 * @param borderColor   border Color to use
 	 * @param borderStyle  border Style to use
 	 */
-	private void setBorderStyleToCellStyle(HSSFCellStyle cellStyle, short borderColor, short borderStyle) {
+	private void setBorderStyleToCellStyle(HSSFCellStyle cellStyle, short borderColor, BorderStyle borderStyle) {
 		cellStyle.setLeftBorderColor(borderColor);
 		cellStyle.setRightBorderColor(borderColor);
 		cellStyle.setTopBorderColor(borderColor);
@@ -261,10 +270,10 @@ public class BHiveExcelCommand {
 		return createTitleCellStyle((short) 12, false);
 	}
 	protected HSSFCellStyle createTitleCellStyle(short fontHeightInPoints, short fontColor, byte underline, boolean setBorder) {
-		HSSFFont font = createFont(fontHeightInPoints, fontColor, HSSFFont.BOLDWEIGHT_BOLD, null, underline);
-		HSSFCellStyle cellStyle = createCustomCellStyle(HSSFColor.WHITE.index, HSSFCellStyle.ALIGN_CENTER, HSSFCellStyle.VERTICAL_CENTER, font);
+		HSSFFont font = createFont(fontHeightInPoints, fontColor, true, null, underline);
+		HSSFCellStyle cellStyle = createCustomCellStyle(HSSFColor.WHITE.index, HorizontalAlignment.CENTER, VerticalAlignment.CENTER, font);
 		if(setBorder == true) {
-			setBorderStyleToCellStyle(cellStyle, HSSFColor.GREY_50_PERCENT.index, HSSFCellStyle.BORDER_THIN);
+			setBorderStyleToCellStyle(cellStyle, HSSFColor.GREY_50_PERCENT.index, BorderStyle.THIN);
 			cellStyle.setWrapText(true);
 		}
 		return cellStyle;
@@ -278,7 +287,7 @@ public class BHiveExcelCommand {
 	 * @return HSSFCellStyle hssf cell style to use
 	 */
 	protected HSSFCellStyle createSubTitleCellStyle() {
-		return createCustomCellStyle(HSSFColor.WHITE.index, HSSFCellStyle.ALIGN_RIGHT, HSSFCellStyle.VERTICAL_CENTER, (short) 10, HSSFColor.GREY_50_PERCENT.index, HSSFFont.BOLDWEIGHT_NORMAL, HSSFFont.U_NONE);
+		return createCustomCellStyle(HSSFColor.WHITE.index, HorizontalAlignment.RIGHT, VerticalAlignment.CENTER, (short) 10, HSSFColor.GREY_50_PERCENT.index, false, HSSFFont.U_NONE);
 	}
 
 	/** 
@@ -288,11 +297,11 @@ public class BHiveExcelCommand {
 	protected HSSFCellStyle createHeaderCellStyle() {
 		HSSFCellStyle headerStyle = createCustomCellStyle(
 				HSSFColor.GREY_25_PERCENT.index,
-				HSSFCellStyle.ALIGN_CENTER,
-				HSSFCellStyle.VERTICAL_CENTER,
-				(short) 10, HSSFColor.BLACK.index, HSSFFont.BOLDWEIGHT_BOLD,
+				HorizontalAlignment.CENTER,
+				VerticalAlignment.CENTER,
+				(short) 10, HSSFColor.BLACK.index, true,
 				HSSFFont.U_NONE);
-		setBorderStyleToCellStyle(headerStyle, HSSFColor.GREY_50_PERCENT.index, HSSFCellStyle.BORDER_THIN);
+		setBorderStyleToCellStyle(headerStyle, HSSFColor.GREY_50_PERCENT.index, BorderStyle.THIN);
 		headerStyle.setWrapText(true);
 		return headerStyle;
 	}
@@ -302,9 +311,9 @@ public class BHiveExcelCommand {
 	 * @param align align to use
 	 * @return HSSFCellStyle hssf cell style to use
 	 */
-	protected HSSFCellStyle createDataCellStyle(short align) {
-		HSSFCellStyle dataCellStyle = createCustomCellStyle(HSSFColor.WHITE.index, align, HSSFCellStyle.VERTICAL_TOP);
-		setBorderStyleToCellStyle(dataCellStyle, HSSFColor.GREY_50_PERCENT.index, HSSFCellStyle.BORDER_THIN);
+	protected HSSFCellStyle createDataCellStyle(HorizontalAlignment align) {
+		HSSFCellStyle dataCellStyle = createCustomCellStyle(HSSFColor.WHITE.index, align, VerticalAlignment.TOP);
+		setBorderStyleToCellStyle(dataCellStyle, HSSFColor.GREY_50_PERCENT.index, BorderStyle.THIN);
 		dataCellStyle.setWrapText(true);
 		return dataCellStyle;
 	}
@@ -323,7 +332,15 @@ public class BHiveExcelCommand {
 		renderCustomCellValue(excelRow, cellnum, cellValue, cellStyle, 1, 1);
 	}
 
-	/** Excel Row의 특정 Cell에 값을 렌더링 (스타일 적용가능) */
+	/** 
+	 * Excel Row의 특정 Cell에 값을 렌더링 (스타일 적용가능) 
+	 * @param excelRow HSSFRow excelRow
+	 * @param cellnum int cell number
+	 * @param cellValue String cell value
+	 * @param cellStyle HSSFCellStyle object
+	 * @param colSpan col span value
+	 * @param rowSpan row span value
+	 */
 	protected static void renderCustomCellValue(HSSFRow excelRow, int cellnum, String cellValue, HSSFCellStyle cellStyle, int colSpan, int rowSpan) {
 		HSSFCell excelCell;
 		excelCell = excelRow.createCell(cellnum);
@@ -361,7 +378,12 @@ public class BHiveExcelCommand {
 	}
 
 	////////////////////////////////////////////////////////////////////////////////
-	/** 엑셀 생성 (MAIN Start Method)*/
+	/** 
+	 * 엑셀 생성 (MAIN Start Method)
+	 * @param workbook HSSFRow excelRow
+	 * @param request HttpServletRequest request object
+	 * @param response HttpServletResponse response object
+	 */
 	public void buildExcelDocument(HSSFWorkbook workbook, HttpServletRequest request, HttpServletResponse response) {
 		this.workbook = workbook;
 		this.request = request;
@@ -387,11 +409,12 @@ public class BHiveExcelCommand {
 			throw new BHiveRuntimeException("Failed to create excel.", e);
 		}
 	}
-	/** 오류발생시 Metadata의 클래스 호환성 확인 */
-	@SuppressWarnings("unchecked")
+	/** 
+	 * 오류발생시 Metadata의 클래스 호환성 확인 
+	 */
 	protected void checkDataItemTypeWithMetadataClass() {
 		if(this.dataList.size() > 0) {
-			Class dataItemType = this.dataList.get(0).getClass();
+			Class<?> dataItemType = this.dataList.get(0).getClass();
 			if(!this.metadataClass.isAssignableFrom(dataItemType)) {
 				logger.warn("[CAUTION] Given metadataClass is not assignable from item's class of given list.");
 				logger.warn(" - metadataClass: {}", metadataClass);
@@ -400,7 +423,10 @@ public class BHiveExcelCommand {
 		}
 	}
 
-	/** 1. Metadata 클래스에서 출력을 위한 설정정보맵 구성 */
+	/**
+	 * Metadata 클래스에서 출력을 위한 설정정보맵 구성 
+	 * @throws IntrospectionException throws Intro spection Exception
+	 */
 	protected void prepareMetadata() throws IntrospectionException {
 		if(columnOrderMap.size() == 0) {
 			//Order 맵
@@ -431,7 +457,12 @@ public class BHiveExcelCommand {
 		}
 	}
 
-	/** 2-1. 타이틀 출력 */
+	/** 
+	 * 타이틀 출력
+	 * @param excelSheet HSSFSheet object
+	 * @param rownum int rownum
+	 * @return next title row index
+	 */
 	protected int renderTitle(HSSFSheet excelSheet, int rownum) {
 		if(StringUtils.isEmpty(this.title)) {
 			return rownum;
@@ -453,10 +484,20 @@ public class BHiveExcelCommand {
 		return rownum;
 	}
 
-	/** 2-1. [Override용] 타이틀 직후 커스텀 출력  */
+	/** 
+	 * 타이틀 직후 커스텀 출력  
+	 * @param excelSheet HSSFSheet object
+	 * @param rownum int rownum
+	 * @return next custom title row index
+	 */
 	protected int renderCustomTitle(HSSFSheet excelSheet, int rownum) { return rownum; }
 
-	/** 2-2. 서브 타이틀 출력 (누가, 언제 출력) */
+	/** 
+	 * 서브 타이틀 출력 (누가, 언제 출력) 
+	 * @param excelSheet HSSFSheet object
+	 * @param rownum int rownum
+	 * @return next sub title row index
+	 */
 	protected int renderSubtitle(HSSFSheet excelSheet, int rownum) {
 		User me = null;
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -487,10 +528,20 @@ public class BHiveExcelCommand {
 		return rownum;
 	}
 
-	/** 2-2. [Override용] 서브타이틀 직후 커스텀 출력  */
+	/** 
+	 * 서브타이틀 직후 커스텀 출력 
+	 * @param excelSheet HSSFSheet object
+	 * @param rownum int rownum
+     * @return next custom sub title row index
+	 */
 	protected int renderCustomSubTitle(HSSFSheet excelSheet, int rownum) { return rownum; }
 
-	/** 2-3. 헤더 렌더링 */
+	/** 
+	 * 헤더 렌더링 
+	 * @param excelSheet HSSFSheet object
+	 * @param rownum int rownum
+	 * @return next header row index
+	 */
 	protected int renderExcelHeader(HSSFSheet excelSheet, int rownum) {
 		HSSFCellStyle headerStyle = createHeaderCellStyle();
 
@@ -567,12 +618,20 @@ public class BHiveExcelCommand {
 		return rownum;
 	}
 
-	/** 2-4. 데이터 렌더링 */
+	/** 
+	 * 데이터 렌더링 
+	 * @param excelSheet HSSFSheet object
+	 * @param rownum int rownum
+	 * @throws IllegalAccessException throws IllegalAccess Exception 
+	 * @throws InvocationTargetException throws Invocation Target Exception
+	 * @throws NoSuchMethodException throws No Such Method Exception
+	 * @return int rendered Excel rows
+	 */
 	protected int renderExcelRows(HSSFSheet excelSheet, int rownum) throws IllegalAccessException, InvocationTargetException, NoSuchMethodException {
 		Map<ExcelColumn.ExcelAlign, HSSFCellStyle> cellStyleMap = new HashMap<ExcelColumn.ExcelAlign, HSSFCellStyle>();
-		HSSFCellStyle cellStyleLeft =createDataCellStyle(HSSFCellStyle.ALIGN_LEFT);
-		HSSFCellStyle cellStyleCenter =createDataCellStyle(HSSFCellStyle.ALIGN_CENTER);
-		HSSFCellStyle cellStyleRight =createDataCellStyle(HSSFCellStyle.ALIGN_RIGHT);
+		HSSFCellStyle cellStyleLeft =createDataCellStyle(HorizontalAlignment.LEFT);
+		HSSFCellStyle cellStyleCenter =createDataCellStyle(HorizontalAlignment.CENTER);
+		HSSFCellStyle cellStyleRight =createDataCellStyle(HorizontalAlignment.RIGHT);
 		HSSFCellStyle cellStyleDefaultFallback = cellStyleLeft;
 		cellStyleMap.put(ExcelColumn.ExcelAlign.Left, cellStyleLeft);
 		cellStyleMap.put(ExcelColumn.ExcelAlign.Center, cellStyleCenter);
@@ -627,15 +686,18 @@ public class BHiveExcelCommand {
 					}
 					cell.setCellStyle(dataCellStyle);
 				}
-				
+
 			}
 		}
 		return rownum;
 	}
 
-	/** 3. 렌더링 후 처리
+	/** 
+	 * 렌더링 후 처리
+	 * @param excelSheet HSSFSheet object
 	 * @param dataRownumStarted 데이터 출력 시작 위치
 	 * @param rownum 최종 출력 위치
+	 * @throws UnsupportedEncodingException Unsupported Encoding Exception
 	 */
 	protected void postRenderSheet(HSSFSheet excelSheet, int dataRownumStarted, int rownum) throws UnsupportedEncodingException {
 		//Column의 Width 설정 (커스텀/AutoSize)
@@ -651,7 +713,10 @@ public class BHiveExcelCommand {
 		setResponseHeader();
 	}
 
-	/** 3-1. 컬럼폭 적용 (기본: 자동폭 계산) */
+	/** 
+	 * 컬럼폭 적용 (기본: 자동폭 계산) 
+	 * @param excelSheet HSSFSheet object
+	 */
 	protected void applyColumnWidth(HSSFSheet excelSheet) {
 		int cellnum = 0;
 		for(String field : columnOrderMap.keySet()) {
@@ -673,7 +738,12 @@ public class BHiveExcelCommand {
 		}
 	}
 
-	/** 3-2. Merge Mode에 따른 Data Cell 병합 */
+	/** 
+	 * Merge Mode에 따른 Data Cell 병합 
+	 * @param excelSheet HSSFSheet object
+	 * @param dataRownumStarted 처리 시작 row index
+	 * @param rownum int 처리할 row 갯수
+	 */
 	protected void applyDataCellMergeMode(HSSFSheet excelSheet, int dataRownumStarted, int rownum) {
 		switch (this.mergeMode) {
 		case MERGE_VERTICAL:
@@ -687,7 +757,10 @@ public class BHiveExcelCommand {
 		}
 	}
 
-	/** 3-3. 컬럼 숨김적용 */
+	/** 
+	 * 컬럼 숨김적용
+	 * @param excelSheet HSSFSheet object
+	 */
 	protected void applyColumnHidden(HSSFSheet excelSheet) {
 		int cellnum = 0;
 		for(String field : columnOrderMap.keySet()) {
@@ -701,7 +774,10 @@ public class BHiveExcelCommand {
 		}
 	}
 
-	/** 3-4. 응답헤더 설정 (다운로드 파일명등...) */
+	/** 
+	 * 응답헤더 설정 (다운로드 파일명등...)
+ 	 * @throws UnsupportedEncodingException throws Un supported Encoding Exception
+	 */
 	protected void setResponseHeader() throws UnsupportedEncodingException {
 		//파일명
 		String attachmentFilename = FilenameUtils.removeExtension(filename) + "_" + now.toString("yyyyMMdd_HHmmss") + EXTENSTION;
@@ -711,7 +787,11 @@ public class BHiveExcelCommand {
 		response.setHeader("Set-Cookie", "fileDownload=true; path=/");
 	}
 
-	/** 브라우저 종류에 따른 파일명 설정 */
+	/** 
+	 * 브라우저 종류에 따른 파일명 설정 
+	 * @param attachmentFilename 첨부 파일명
+	 * @throws UnsupportedEncodingException throws Un supported Encoding Exception
+	 */
 	private void setAttachementFilenameHeader(String attachmentFilename) throws UnsupportedEncodingException {
 		String user_agent = request.getHeader("user-agent");
 		boolean isInternetExplorer = (user_agent.indexOf("MSIE") > -1) || (user_agent.indexOf("Trident") > -1);
@@ -765,13 +845,22 @@ public class BHiveExcelCommand {
 		}
 	}
 
-	/** 주어진 줄을 컬럼수만큼 가로병합(주로 제목부분 줄에 적용) */
+	/** 
+	 * 주어진 줄을 컬럼수만큼 가로병합(주로 제목부분 줄에 적용) 
+	 * @param excelSheet 가로 병합할 sheet
+	 * @param atRownum 병합할 row index
+	 */
 	protected void mergeHorizontalByColumnCount(HSSFSheet excelSheet, int atRownum) {
 		int columnCount = this.columnOrderMap.size();
 		mergeHorizontal(excelSheet, atRownum, 0, columnCount);
 	}
 
-	/** 컬럼데이터를 세로 Merge */
+	/** 
+	 * 컬럼데이터를 세로 Merge
+	 * @param excelSheet 가로 병합할 sheet
+	 * @param dataRownumStarted 병합시작할 row index
+	 * @param dataRownumMax 병합할 최대 row 갯수
+	 */
 	protected void mergeVerticalAtAllColumn(HSSFSheet excelSheet, int dataRownumStarted, int dataRownumMax) {
 		int columnCount = this.columnOrderMap.size();
 		for(int cellnum=0; cellnum<columnOrderMap.size(); cellnum++) {
@@ -779,7 +868,12 @@ public class BHiveExcelCommand {
 		}
 	}
 
-	/** 컬럼데이터를 세로 Merge, 앞에서 부터 HIERARCHY 방식 사용 (1열이 7줄 합쳐지면 2열은 그 경계를 초과하여 합치치 않음) */
+	/** 
+	 * 컬럼데이터를 세로 Merge, 앞에서 부터 HIERARCHY 방식 사용 (1열이 7줄 합쳐지면 2열은 그 경계를 초과하여 합치치 않음) 
+	 * @param excelSheet 가로 병합할 sheet
+	 * @param dataRownumStarted 병합시작할 row index
+	 * @param dataRownumMax 병합할 최대 row 갯수
+	 */
 	protected void mergeVerticalHierarchyAtAllColumn(HSSFSheet excelSheet, int dataRownumStarted, int dataRownumMax) {
 		int columnCount = this.columnOrderMap.size();
 		if(columnCount > 0) {
@@ -787,7 +881,8 @@ public class BHiveExcelCommand {
 		}
 	}
 
-	/** 특정 Column의 세로방향으로 값이 같으면 Merge
+	/** 
+	 * 특정 Column의 세로방향으로 값이 같으면 Merge
 	 * @param excelSheet 시트
 	 * @param cellnum 처리할 Column의 CellNum
 	 * @param dataRownumStarted 시작 Rownum
@@ -843,7 +938,8 @@ public class BHiveExcelCommand {
 		}
 	}
 
-	/** 특정 Row의 가로방향으로 값이 같으면 Merge
+	/** 
+	 * 특정 Row의 가로방향으로 값이 같으면 Merge
 	 * @param excelSheet 시트
 	 * @param rownum 줄번호
 	 * @param cellnumStart 컬럼시작
@@ -890,7 +986,13 @@ public class BHiveExcelCommand {
 	}
 
 	////////////////////////////////////////////////////////////////////////////////
-	/** CSV 생성. Super Fast */
+	/** 
+	 * CSV 생성. Super Fast 
+	 * @param model CSV 로 생성할 데이터
+	 * @param csvWriter ICsvBeanWriter object
+	 * @param request HttpServletRequest object
+	 * @param response HttpServletResponse object
+	 */
 	public void buildCsvDocument(Map<String, Object> model, ICsvBeanWriter csvWriter, HttpServletRequest request, HttpServletResponse response) {
 		this.csvWriter = csvWriter;
 		this.request = request;
@@ -907,7 +1009,11 @@ public class BHiveExcelCommand {
 		}
 	}
 
-	/** CSV 헤더 생성 */
+	/** 
+	 * CSV 헤더 생성 
+	 * @param model CSV 로 생성할 데이터
+	 * @throws IOException throws IO Exception
+	 */
 	private void renderCsvHeader(Map<String, Object> model) throws IOException {
 		if(!StringUtils.isEmpty(this.title)) {
 			logger.trace("####[CSV] writeComment");
@@ -927,7 +1033,11 @@ public class BHiveExcelCommand {
 		logger.trace("####[CSV] writeHeader ok");
 	}
 
-	/** CSV 데이터 생성 */
+	/** 
+	 * CSV 데이터 생성
+	 * @param model CSV 로 생성할 데이터
+	 * @throws IOException throws IO Exception
+	 */
 	private void renderCsvRows(Map<String, Object> model) throws IOException {
 		String[] columns = columnOrderMap.keySet().toArray(new String[0]);
 		for (Object dt : dataList) {
@@ -936,7 +1046,10 @@ public class BHiveExcelCommand {
 		logger.trace("####[CSV] writeRows ok");
 	}
 
-	/** CSV 응답헤더 설정 (다운로드 파일명등...) */
+	/** 
+	 * CSV 응답헤더 설정 (다운로드 파일명등...)
+	 * @throws IOException throws IO Exception
+	 */
 	protected void setResponseCSVHeader() throws IOException {
 		//파일명
 		String attachmentFilename = FilenameUtils.removeExtension(filename) + "_" + now.toString("yyyyMMdd_HHmmss") + EXTENSION_CSV;
@@ -969,5 +1082,5 @@ public class BHiveExcelCommand {
 	public void setMergeMode(BHiveExcelMergeMode mergeMode) {
 		this.mergeMode = mergeMode;
 	}
-	
+
 }

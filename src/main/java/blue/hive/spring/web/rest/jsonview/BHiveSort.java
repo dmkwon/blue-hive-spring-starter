@@ -10,8 +10,8 @@ import com.fasterxml.jackson.annotation.JsonView;
 import blue.hive.spring.web.rest.BHiveView;
 
 /**
- * {@link Sort}와 내부의 {@link Order} 구현체가  
- * {@link JsonView} Annotaion을 처리할 수 없어서 옮겨 담기 위한 {@link Sort} 구현체
+ * org.springframework.data.domain.Sort 와 내부의 Order 구현체가 
+ * JsonView Annotaion을 처리할 수 없어서 옮겨 담기 위한 Sort 구현체
  * 
  * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  */
@@ -22,7 +22,7 @@ public class BHiveSort extends Sort {
 	public BHiveSort(List<Order> orders) {
 		super(orders);
 	}
-	
+
 	public static BHiveSort buildFrom(Sort sort) {
 		if(sort == null) {
 			return null;
@@ -33,7 +33,7 @@ public class BHiveSort extends Sort {
 		}
 		return new BHiveSort(orders);
 	}
-	
+
 	public static class AbleOrder extends Order {
 		private static final long serialVersionUID = -4235892487869747963L;
 
@@ -78,7 +78,5 @@ public class BHiveSort extends Sort {
 		public NullHandling getNullHandling() {
 			return super.getNullHandling();
 		}
-		
 	}
-	
 }

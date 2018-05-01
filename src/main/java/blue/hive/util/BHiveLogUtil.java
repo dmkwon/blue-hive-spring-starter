@@ -121,6 +121,7 @@ public class BHiveLogUtil {
 	 * 정규식으로 {"code":"NNNN..","msg":"XXXXXXX..." 로 시작하면 Graceful한 Exception으로 처리
 	 *  
 	 * @param ex 예외 객체
+	 * @return boolean it's graceful exception
 	 */
 	public static boolean isGracefulException(Exception ex) {
 		try {

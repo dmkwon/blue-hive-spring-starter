@@ -133,7 +133,7 @@ public class DigestUtil {
 	 * @param algorithm
 	 *            Algorithm used to do the digest
 	 * @return encrypted password based on the algorithm.
-	 * @throws NoSuchAlgorithmException
+	 * @throws NoSuchAlgorithmException throws No Such Algorithm Exception
 	 */
 	public static String encodePassword(String password, String algorithm) throws NoSuchAlgorithmException {
 		byte[] unencodedPassword;

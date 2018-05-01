@@ -114,8 +114,8 @@ public class BHiveDateUtil {
 	
 	/**
 	 * 문자열을 Joda LocalDateTime으로 변환
-	 * @param dateString
-	 * @param format date Format
+	 * @param dateString date string value
+	 * @param format date Format 
 	 * @return Joda DateTime (throwException이 false이면 변환실패시 null반환)
 	 */
 	public static LocalDateTime parseToLocalDateTime(String dateString, String format) {
@@ -138,11 +138,25 @@ public class BHiveDateUtil {
 		return formatter.format(date);
 	}
 
-	/** yyyyMMdd로 포매팅 */
+	/** 
+	 * yyyyMMdd로 포매팅
+	 * @param date Date 객체
+	 * @return formated date string
+	 */
 	public static String yyyyMMdd(Date date) { return formatDate(date, "yyyyMMdd"); }
-	/** yyyyMMddHHmmss로 포매팅 */
+	
+	/** 
+	 * yyyyMMddHHmmss로 포매팅 
+	 * @param date Date 객체
+	 * @return formated date string
+	 */
 	public static String yyyyMMddHHmmss(Date date) { return formatDate(date, "yyyyMMddHHmmss"); }
-	/** yyyyMMddHHmmssSSSS로 포매팅 */
+	
+	/** 
+	 * yyyyMMddHHmmssSSSS로 포매팅 
+	 * @param date Date 객체
+	 * @return formated date string
+	 */
 	public static String yyyyMMddHHmmssSSSS(Date date) { return formatDate(date, "yyyyMMddHHmmssSSSS"); }
 
 	/**
@@ -154,22 +168,42 @@ public class BHiveDateUtil {
 		return formatDate(new Date(), formatString);
 	}
 
-//	/** 현재 HH */
-//	public static String HH() { return formatNowDate("HH"); }
-	/** 현재 yyyyMM */
+	/** 
+	 * 현재 yyyy
+	 * @return formated String value 
+	 */
 	public static String yyyy() { return formatNowDate("yyyy"); }
-	/** 현재 yyyyMM */
+	/** 
+	 * 현재 yyyyMM 
+	 * @return formated String value 
+	 */
 	public static String yyyyMM() { return formatNowDate("yyyyMM"); }
-	/** 현재 yyyyMMdd */
+	/** 
+	 * 현재 yyyyMMdd 
+	 * @return formated String value 
+	 */
 	public static String yyyyMMdd() { return formatNowDate("yyyyMMdd"); }
-	/** 현재 yyyyMMddHHmmss */
+	/** 
+	 * 현재 yyyyMMddHHmmss 
+	 * @return formated String value 
+	 */
 	public static String yyyyMMddHHmmss() { return formatNowDate("yyyyMMddHHmmss"); }
-	/** 현재 yyyyMMddHHmmssSSSS */
+	/** 
+	 * 현재 yyyyMMddHHmmssSSSS 
+	 * @return formated String value 
+	 */
 	public static String yyyyMMddHHmmssSSSS() { return formatNowDate("yyyyMMddHHmmssSSSS"); }
-	/** 현재 yyyyMMddHypenHHmmss */
+	/** 
+	 * 현재 yyyyMMddHypenHHmmss
+	 * @return formated String value 
+	 */
 	public static String yyyyMMddHypenHHmmss() { return formatNowDate("yyyyMMdd-HHmmss"); }
 
-	/** 현재 Date의 주어진 날짜만큼 이전/다음 날을 획득 */
+	/** 
+	 * 현재 Date의 주어진 날짜만큼 이전/다음 날을 획득 
+	 * @param dayAmount 날짜량 
+	 * @return Date datetime
+	 */
 	private static Date getDate(int dayAmount) {
 		Calendar cal = Calendar.getInstance();
 		cal.add(Calendar.DATE, dayAmount);
@@ -177,10 +211,18 @@ public class BHiveDateUtil {
 		return date;
 	}
 
-	/** 현재 Date의 주어진 날짜만큼 이전/다음 날의 yyyyMMdd를 획득 */
+	/** 
+	 * 현재 Date의 주어진 날짜만큼 이전/다음 날의 yyyyMMdd를 획득 
+	 * @param dayAmount 날짜량 
+	 * @return String datetime
+	 */
 	public static String yyyyMMdd(int dayAmount) { return yyyyMMdd(getDate(dayAmount));	}
 	
-	/** LocalDateTime을 yyyy-MM-dd HH:mm:ss 포맷의 문자열로 반환 */
+	/** 
+	 * LocalDateTime을 yyyy-MM-dd HH:mm:ss 포맷의 문자열로 반환 
+	 * @param date LocalDateTime datetime
+	 * @return converted String datetime
+	 */
 	public static String convertLocalDateTimeToString(LocalDateTime date) {
 		String dateToString = "";
 		if( null != date ) {
@@ -189,6 +231,12 @@ public class BHiveDateUtil {
 		return dateToString;
 	}
 	
+	/** 
+	 * LocalDateTime을 포맷의 문자열로 반환 
+	 * @param date LocalDateTime datetime
+	 * @param format converted format string
+	 * @return converted String datetime
+	 */
 	public static String convertLocalDateTimeToString(LocalDateTime date, String format) {
 		String dateToString = "";
 		if( null != date ) {
@@ -197,7 +245,13 @@ public class BHiveDateUtil {
 		return dateToString;
 	}
 	
-	// 두 날짜 사이 차이 
+	/** 
+	 * 두 날짜 사이 차이 
+	 * 
+	 * @param start LocalDateTime start time
+	 * @param end LocalDateTime end time 
+	 * @return difference between start and end LocalDateTime
+	 */
 	public static int diffDate(LocalDateTime start, LocalDateTime end) {
 		return Days.daysBetween(start.toLocalDate(), end.toLocalDate()).getDays();
 	}

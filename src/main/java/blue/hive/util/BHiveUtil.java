@@ -41,6 +41,7 @@ public class BHiveUtil {
 
 	/**
 	 * Spring Active Profiles 획득
+	 * @return active profiles values
 	 */
 	public static List<String> getActiveProfiles() {
 		ApplicationContext applicationContext = ApplicationContextHolder.getApplicationContext();
@@ -54,6 +55,7 @@ public class BHiveUtil {
 
 	/**
 	 * Spring Active Profiles 획득 - 서버환경: local, dev, stage, real 중의 한개 값
+	 * @return active profiles value
 	 */
 	public static String getActiveServerProfile() {
 		List<String> activeProfiles = getActiveProfiles();
@@ -82,31 +84,46 @@ public class BHiveUtil {
 		return null;
 	}
 
-	/** Spring Active Profile이 local인지 확인 */
+	/** 
+	 * Spring Active Profile이 local인지 확인 
+	 * @return boolean is local profile
+	 */
 	public static boolean isLocalProfile() {
 		return "local".equals(getActiveServerProfile());
 	}
-	/** Spring Active Profile이 dev인지 확인 */
+	/** 
+	 * Spring Active Profile이 dev인지 확인
+	 * @return boolean is dev profile
+	 */
 	public static boolean isDevProfile() {
 		return "dev".equals(getActiveServerProfile());
 	}	
-	/** Spring Active Profile이 real인지 확인 */
+	/** 
+	 * Spring Active Profile이 real인지 확인
+	 * @return boolean is real profile
+	 */
 	public static boolean isRealProfile() {
 		return "real".equals(getActiveServerProfile());
 	}	
-	/** Spring Active Profile이 aws인지 확인 */
+	/** 
+	 * Spring Active Profile이 aws인지 확인 
+	 * @return boolean is aws profile
+	 */
 	public static boolean isAwsProfile() {
 		return "aws".equals(getActiveServerProfile());
 	}	
-	/** Spring Active Profile이 test인지 확인 */
+	/** 
+	 * Spring Active Profile이 test인지 확인
+	 * @return boolean is test profile
+	 */
 	public static boolean isTestProfile() {
 		return "test".equals(getActiveServerProfile());
 	}	
 
-
 	//MethodName///////////////////////////////////////////////////////////////////////
 	/**
 	 * 현재메소드명 획득
+	 * @return current method name
 	 */
 	public static String getCurrentMethodName() {
 		return getStackTraceMethodName(0);

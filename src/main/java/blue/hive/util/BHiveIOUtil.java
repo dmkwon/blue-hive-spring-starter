@@ -17,6 +17,9 @@ public class BHiveIOUtil {
 
 	/**
 	 * InputStream에서 문자열을 끝까지 읽는다. (UTF-8 인코딩 적용)
+	 * @param is Inputstream 객체
+	 * @return String 읽은 문자열
+	 * @throws IOException throws IO Exception
 	 */
 	public static String readStringToEnd(InputStream is) throws IOException {
 		return readStringToEnd(is, "UTF-8");
@@ -24,6 +27,10 @@ public class BHiveIOUtil {
 
 	/**
 	 * InputStream에서 문자열을 끝까지 읽는다. (주어진 인코딩 적용)
+	 * @param is InputStream 객체
+	 * @param charsetName character set 값
+	 * @return 읽은 문자열
+	 * @throws IOException throws io exception
 	 */
 	public static String readStringToEnd(InputStream is, String charsetName) throws IOException {
 		String body = new String(readBytesToEnd(is), Charset.forName(charsetName));
@@ -32,6 +39,9 @@ public class BHiveIOUtil {
 
 	/**
 	 * InputStream에서 Byte[]을 끝까지 읽는다.
+	 * @param is inputStream 객체
+	 * @return byte[] array of byte
+	 * @throws IOException throws io exception
 	 */
 	public static byte[] readBytesToEnd(InputStream is) throws IOException {
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -43,11 +53,22 @@ public class BHiveIOUtil {
 		return baos.toByteArray();
 	}
 
-
+	/**
+	 * File 객체가 directory 인지 체크
+	 * @param file File 객체
+	 * @return boolean is plain Directory's check
+	 * @throws IOException throws io exception
+	 */
 	public static boolean isPlainDir(File file) throws IOException {
 		return file.isDirectory() && !isSymbolicLink(file);
 	}
 
+	/**
+	 * File 객체가 symbolic link 인지 체크
+	 * @param file File 객체
+	 * @return boolean is symbolic link's check
+	 * @throws IOException throws io exception
+	 */
 	public static boolean isSymbolicLink(File file) throws IOException {
 		if (file == null) {
 			throw new NullPointerException("File must not be null");

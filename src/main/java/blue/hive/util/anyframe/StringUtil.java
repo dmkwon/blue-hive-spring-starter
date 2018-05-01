@@ -427,6 +427,7 @@ public class StringUtil {
 	 *            order, if it is over 0, the bigger one in lexicographical
 	 *            order.
 	 * @see String#compareTo(String)
+	 * @return compareTo result 
 	 */
 	public static int compareTo(String sourceStr, String targetStr) {
 		if (sourceStr == null || targetStr == null) {
@@ -447,6 +448,7 @@ public class StringUtil {
 	 *         smaller one in lexicographical order, if it is over 0, the bigger
 	 *         one in lexicographical order.
 	 * @see String#compareToIgnoreCase(String)
+	 * @return compareToIgnoreCase result 
 	 */
 	public static int compareToIgnoreCase(String sourceStr, String targetStr) {
 		if (sourceStr == null || targetStr == null) {
@@ -950,6 +952,7 @@ public class StringUtil {
 	 * @see org.springframework.util.StringUtils#countOccurrencesOf(String,
 	 *      String)
 	 * @deprecated Use {@link #countMatches(String, String)}
+	 * @return contatains count 
 	 */
 	@Deprecated
 	public static int getContainsCount(String str, String sub) {
@@ -966,6 +969,7 @@ public class StringUtil {
 	 *            string to search for. Return 0 if this is null.
 	 * @see org.springframework.util.StringUtils#countOccurrencesOf(String,
 	 *      String)
+	 * @return int number of strings matches
 	 */
 	public static int countMatches(String str, String sub) {
 		return org.springframework.util.StringUtils
@@ -1027,6 +1031,7 @@ public class StringUtil {
 	 * @see org.springframework.util.StringUtils#countOccurrencesOf(String,
 	 *      String)
 	 * @deprecated Use {@link #countMatchesIgnoreCase(String, String)}
+	 * @return int number of contains
 	 */
 	@Deprecated
 	public static int getContainsCountIgnoreCase(String str, String sub) {
@@ -1044,6 +1049,7 @@ public class StringUtil {
 	 *            string to search for. Return 0 if this is null.
 	 * @see org.springframework.util.StringUtils#countOccurrencesOf(String,
 	 *      String)
+	 * @return int number of ignore case matches
 	 */
 	public static int countMatchesIgnoreCase(String str, String sub) {
 		return org.springframework.util.StringUtils.countOccurrencesOf(str
@@ -1175,7 +1181,7 @@ public class StringUtil {
 	 * @param charset
 	 *            supported character set
 	 * @return String random string
-	 * @throws UnsupportedEncodingException
+	 * @throws UnsupportedEncodingException throws Un supported Encoding Exception
 	 */
 	public static String getRandomStringByCharset(int size, String charset)
 			throws UnsupportedEncodingException {
@@ -1190,7 +1196,7 @@ public class StringUtil {
 	 * @param size
 	 *            length of random string to be made
 	 * @return String random string in Korean characters
-	 * @throws UnsupportedEncodingException
+	 * @throws UnsupportedEncodingException throws Un supported Encoding Exception
 	 */
 	public static String getRandomStringByKorean(int size)
 			throws UnsupportedEncodingException {
@@ -1215,7 +1221,7 @@ public class StringUtil {
 	 *            original String
 	 * @param strToken
 	 *            specific String token
-	 * @return String[]
+	 * @return String[] array of string 
 	 * @deprecated Use {@link #tokenizeToStringArray(String, String)}
 	 */
 	@Deprecated
@@ -3251,7 +3257,7 @@ public class StringUtil {
 	 * @param charset
 	 *            the name of a supported charset
 	 * @return The resultant string
-	 * @throws UnsupportedEncodingException
+	 * @throws UnsupportedEncodingException throws un supported Encoding Exception
 	 */
 	public static String convertStringCharset(String str, String charset)
 			throws UnsupportedEncodingException {
@@ -3286,6 +3292,8 @@ public class StringUtil {
 	//	}
 
 	/**
+	 * @param str is number format string value
+	 * @return boolean this is number format 
 	 * @deprecated in favor of @link {@link NumberUtils#isNumber(String)}
 	 */
 	@Deprecated

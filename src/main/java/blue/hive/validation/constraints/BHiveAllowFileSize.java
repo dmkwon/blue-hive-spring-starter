@@ -29,7 +29,10 @@ import blue.hive.validation.constraints.impl.BHiveAllowFileSizeForMultipartFile;
 @ReportAsSingleViolation
 public @interface BHiveAllowFileSize {
 
-	/** 허용 파일 크기 (bytes) */
+	/** 
+	 * 허용 파일 크기 (bytes) 
+	 * @return long 허용 파일 사이즈
+	 */
 	long value(); //required property
 	String displayValue() default "";
 	

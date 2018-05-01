@@ -31,7 +31,9 @@ public class BHiveStringUtil {
 	}
 
 	/**
-	 *  br 태그를 제외한 모든 태그를 escape처리
+	 * br 태그를 제외한 모든 태그를 escape처리
+	 * @param text 문자열
+	 * @return BR 제외 문자열
 	 */
 	public static String htmlEscapeExcludeBR(String text) {
 		if(StringUtil.isEmpty(text)) {
@@ -43,6 +45,8 @@ public class BHiveStringUtil {
 
 	/**
 	 * 문자열에 대문자 포함여부
+	 * @param str 문자열
+	 * @return uppercase 와 매칭되는 문자열
 	 */
 	public static boolean isPatternUpperCaseInclude(String str) {
 		Pattern p = Pattern.compile(".*[A-Z].*", Pattern.UNICODE_CASE);
@@ -51,7 +55,9 @@ public class BHiveStringUtil {
 	}
 
 	/**
-	 * 문자열에 소문자 포함여부
+     * 문자열에 소문자 포함여부
+	 * @param str 문자열
+	 * @return lowercase 와 매칭되는 문자열
 	 */
 	public static boolean isPatternLowerCaseInclude(String str) {
 		Pattern p = Pattern.compile(".*[a-z].*", Pattern.UNICODE_CASE);
@@ -59,13 +65,18 @@ public class BHiveStringUtil {
 		return m.matches();
 	}
 
-	/** 연속된 숫자, 반목된 문자(숫자) 비허용 체크 */
-	public static boolean validateBadSequenceLength(String pw, Integer badSequenceLength/* 3 */) {
+	/** 
+	 * 연속된 숫자, 반목된 문자(숫자) 비허용 체크
+	 * @param pw 문자열
+	 * @param badSequenceLength 중복 체크 길이 연속 중복 체크 길이
+	 * @return boolean 반복 여부 체크 결과
+	 */
+	public static boolean validateBadSequenceLength(String pw, Integer badSequenceLength/* 2 */) {
 		if(badSequenceLength == null) {
-			badSequenceLength = 3;
+			badSequenceLength = 2;
 		}
 		String numbers = "01234567890";
-		int start = badSequenceLength - 1;
+		int start = badSequenceLength;
 		String seq = "_" + pw.substring(0, start);
 		for (int i = start; i < pw.length(); i++) {
 			seq = seq.substring(1) + pw.charAt(i);
