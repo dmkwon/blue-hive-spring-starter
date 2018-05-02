@@ -6,7 +6,7 @@
 	<groupId>com.github.dmkwon</groupId>
 	<artifactId>blue-hive-spring-starter</artifactId>
 	<packaging>jar</packaging>
-	<version>1.0.0</version>
+	<version>1.0.1</version>
 
 	<name>Blue Hive Spring Starter</name>
 	<description>Blue Hive Spring Starter Library </description>
