@@ -3,11 +3,6 @@ package blue.hive.util;
 import java.util.Arrays;
 import java.util.List;
 
-import javax.crypto.Cipher;
-import javax.crypto.spec.IvParameterSpec;
-import javax.crypto.spec.SecretKeySpec;
-
-import org.apache.commons.codec.binary.Base64;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
@@ -275,76 +270,4 @@ public class BHiveUtil {
 
 		return sb.toString();
 	}
-
-	private static String key = "";
-	protected final static String initialVector = "1234567890123456";
-
-	public static String encode(byte[] data) {
-		//
-		//  trap door
-		//
-		if (data == null) {	
-			return null;
-		}
-		//
-		//  declaration
-		//
-		byte[] result = null;
-		String iv = initialVector;
-		Cipher cipher = null;
-		SecretKeySpec keyspec = null;
-		IvParameterSpec ivspec = null;
-		//
-		//  encode
-		//
-		try {
-			keyspec = new SecretKeySpec(key.getBytes("UTF-8"), "AES");
-			ivspec  = new IvParameterSpec(iv.getBytes("UTF-8"));
-			cipher  = Cipher.getInstance("AES/CBC/PKCS5Padding");
-			cipher.init(Cipher.ENCRYPT_MODE, keyspec, ivspec);
-			result = cipher.doFinal(data);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		//
-		//  done
-		//
-		String resStr = Base64.encodeBase64String(result);
-		return resStr;
-	}
-
-	public static byte[] decode(byte[] data) {
-		//
-		//  trap door
-		//
-		if (data.length == 0) {
-			return null;
-		}
-		//
-		//  declaration
-		//
-		byte[] result = null;
-		String iv = initialVector;
-		Cipher cipher = null;
-		SecretKeySpec keyspec = null;
-		IvParameterSpec ivspec = null;
-		//
-		//
-		//
-		try {
-			data = Base64.decodeBase64(data);
-			keyspec = new SecretKeySpec(key.getBytes("UTF-8"), "AES");
-			ivspec  = new IvParameterSpec(iv.getBytes("UTF-8"));
-			cipher  = Cipher.getInstance("AES/CBC/PKCS5Padding");
-			cipher.init(Cipher.DECRYPT_MODE,  keyspec, ivspec);
-			result = cipher.doFinal(data);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		//
-		//
-		//
-		return result;
-	}
-
 }
