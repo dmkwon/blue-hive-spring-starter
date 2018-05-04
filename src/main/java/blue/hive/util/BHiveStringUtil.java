@@ -1,6 +1,9 @@
 package blue.hive.util;
 
+import java.nio.ByteBuffer;
 import java.text.DecimalFormat;
+import java.util.Base64;
+import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -55,7 +58,7 @@ public class BHiveStringUtil {
 	}
 
 	/**
-     * 문자열에 소문자 포함여부
+	 * 문자열에 소문자 포함여부
 	 * @param str 문자열
 	 * @return lowercase 와 매칭되는 문자열
 	 */
@@ -91,5 +94,21 @@ public class BHiveStringUtil {
 			}
 		}
 		return true;
-	};	
+	}	
+
+	/**
+	 * short UUID
+	 * @return short UUID String value 22 character
+	 */
+	public static String shortUUID() {
+		UUID uuid = UUID.randomUUID();
+		ByteBuffer byteBuffer = ByteBuffer.allocate(16);
+
+		byteBuffer.putLong(uuid.getMostSignificantBits());
+		byteBuffer.putLong(uuid.getLeastSignificantBits());
+
+		return Base64.getEncoder().withoutPadding().encodeToString(byteBuffer.array())
+				.replaceAll("/", "_")
+				.replaceAll("\\+", "-");
+	}
 }
