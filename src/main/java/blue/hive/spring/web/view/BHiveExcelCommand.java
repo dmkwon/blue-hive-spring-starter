@@ -57,6 +57,7 @@ import blue.hive.util.BHiveVOUtil;
  * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  */
 
+@SuppressWarnings("rawtypes")
 public class BHiveExcelCommand {
 
 	protected final static Logger logger = LoggerFactory.getLogger(BHiveExcelCommand.class);
@@ -95,7 +96,7 @@ public class BHiveExcelCommand {
 	protected String sheetName = "data sheet";
 
 	/** 출력할 데이터셋 */
-	protected List<Object> dataList = new ArrayList<Object>();
+	protected List dataList = new ArrayList<Object>();
 	/** 출력한 데이터 아이템의 메타정보 클래스. ExcelColumn Annotation으로 꾸미기 */
 	protected Class<?> metadataClass;
 
@@ -138,7 +139,7 @@ public class BHiveExcelCommand {
 	 * @param metadataClass metadata Class object
 	 * @param messageSource message source for i18n
 	 */
-	public BHiveExcelCommand(List<Object> dataList, Class<?> metadataClass, MessageSource messageSource) {
+	public BHiveExcelCommand(List dataList, Class<?> metadataClass, MessageSource messageSource) {
 		super();
 		this.dataList = dataList;
 		this.metadataClass = metadataClass;
@@ -155,7 +156,7 @@ public class BHiveExcelCommand {
 	 * @throws InvocationTargetException throw invocation target exception
 	 * @throws NoSuchMethodException throw no such method exception
 	 */
-	public void addCodeMap(String field, List<Object> codeDTList, String valueProp, String nameProp) throws IllegalAccessException, InvocationTargetException, NoSuchMethodException {
+	public void addCodeMap(String field, List codeDTList, String valueProp, String nameProp) throws IllegalAccessException, InvocationTargetException, NoSuchMethodException {
 		Map<String, String> fieldCodeMap = new HashMap<String, String>();
 		for (Object codeDT : codeDTList) {
 			String value = BeanUtils.getProperty(codeDT, valueProp);
