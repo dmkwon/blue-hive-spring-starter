@@ -221,9 +221,6 @@ public class BHiveUtil {
 	 * @return T inner exception object
 	 */
 	public static <T extends Exception> T findInnerException(Throwable ex, Class<? extends Throwable> requiredType) {
-		//		if(ex.getClass() == requiredType) {
-		//			return (T) ex;
-		//		}
 		Throwable cause =  ex.getCause();
 		if(cause == null) {
 			return null;
@@ -250,22 +247,16 @@ public class BHiveUtil {
 	 */
 	public static String buildErrorMessage(Errors errors, MessageSource messageSource, String seperator) {
 		StringBuilder sb = new StringBuilder();
-
-		//List<BHiveObjectError> ableObjectErrors = new ArrayList<BHiveObjectError>();
 		List<ObjectError> globalErrors = errors.getGlobalErrors();
-
 		for (ObjectError objectError : globalErrors) {
-			BHiveObjectError ableObjectError = new BHiveObjectError(objectError);
-			//ableObjectErrors.add(ableObjectError);
-			sb.append(ableObjectError.getMessage() + seperator);
+			BHiveObjectError bhiveObjectError = new BHiveObjectError(objectError);
+			sb.append(bhiveObjectError.getMessage() + seperator);
 		}
 
-		//List<BHiveFieldError> ableFieldErrors = new ArrayList<BHiveFieldError>();
 		List<FieldError> fieldErrors = errors.getFieldErrors();
 		for (FieldError fieldError : fieldErrors) {
-			BHiveFieldError ableFieldError = new BHiveFieldError(fieldError, messageSource);
-			//ableFieldErrors.add(ableFieldError);
-			sb.append(ableFieldError.getMessage() + seperator);
+			BHiveFieldError bhiveFieldError = new BHiveFieldError(fieldError, messageSource);
+			sb.append(bhiveFieldError.getMessage() + seperator);
 		}
 
 		return sb.toString();

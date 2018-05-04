@@ -12,7 +12,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.util.StringUtils;
 
 /**
- * Ablecoms TeeServletOutputStream. Logback Access의 TeeServletOutputStream 참고.
+ * Blue Hive TeeServletOutputStream. Logback Access의 TeeServletOutputStream 참고.
  *
  * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  *

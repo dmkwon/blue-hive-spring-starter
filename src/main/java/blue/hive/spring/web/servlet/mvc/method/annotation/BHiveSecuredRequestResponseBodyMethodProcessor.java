@@ -225,7 +225,7 @@ public abstract class BHiveSecuredRequestResponseBodyMethodProcessor extends Abs
 		return new ServletServerHttpResponse(response);
 
 		//		//dmkwon add start
-		//		AbleTeeHttpServletResponse teeResponse = new AbleTeeHttpServletResponse(response); //원본 응답을 가로채기위한 Tee처리
+		//		BHiveTeeHttpServletResponse teeResponse = new BHiveTeeHttpServletResponse(response); //원본 응답을 가로채기위한 Tee처리
 		//		return new ServletServerHttpResponse(teeResponse);
 		//		//dmkwon add end
 	}

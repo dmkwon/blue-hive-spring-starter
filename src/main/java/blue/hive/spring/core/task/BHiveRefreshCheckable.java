@@ -14,7 +14,7 @@ public interface BHiveRefreshCheckable {
 
 	
 	/**
-	 * refresh 체크를 위한 Task를 시작 (AbleRefreshCheckTask) 
+	 * refresh 체크를 위한 Task를 시작 (BHiveRefreshCheckTask) 
 	 */
 	void runRefreshCheckTask();
 	

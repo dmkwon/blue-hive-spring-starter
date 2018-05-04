@@ -4,7 +4,7 @@ package blue.hive.exception;
 import org.springframework.validation.Errors;
 
 /**
- * ablecoms framework validation exception
+ * blue hive framework validation exception
  *
  * BindingResult Error로 예외 발생을 위한 클래스
  *

@@ -5,7 +5,7 @@ import java.io.InputStream;
 import org.apache.commons.codec.binary.Base64InputStream;
 
 /**
- * {@link Base64InputStream}의 MIME_CHUNK_SIZE마다 CHUNK_SEPARATOR를 삽입하는 동작의 설정을 바꾼 AbleBase64InputStream
+ * {@link Base64InputStream}의 MIME_CHUNK_SIZE마다 CHUNK_SEPARATOR를 삽입하는 동작의 설정을 바꾼 BHiveBase64InputStream
  *
  * 그냥 암호화시 사용하기 위해 한줄로 쭉 출력
  *

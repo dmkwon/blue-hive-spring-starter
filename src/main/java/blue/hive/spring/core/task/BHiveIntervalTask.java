@@ -22,7 +22,7 @@ public class BHiveIntervalTask implements Runnable {
 	}
 
 	/**
-	 * AbleIntervalCallable객체의 처리 로직을 실행
+	 * BHiveIntervalCallable객체의 처리 로직을 실행
 	 * @see java.lang.Runnable#run()
 	 */
 	public void run() {

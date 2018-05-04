@@ -46,13 +46,13 @@ import blue.hive.util.BHiveVOUtil;
 
 
 /**
- * WideExcelView에 Excel의 출력을 위한 정보 Command DT
+ * ExcelView에 Excel의 출력을 위한 정보 Command DT
  *
  * 뷰명칭: 뷰클래스
- *  - ableExcelView: intelliwframe.spring.web.view.AbleExcelView
- * 	- ableXlsxExcelView: intelliwframe.spring.web.view.AbleXlsxExcelView
- * 	- ableStreamingExcelView: intelliwframe.spring.web.view.AbleStreamingExcelView
- * 	- ableCsvView: intelliwframe.spring.web.view.AbleCsvView
+ *  - bHiveExcelView: blue.hive.spring.web.view.BHiveExcelView
+ * 	- bHiveXlsxExcelView: blue.hive.spring.web.view.BHiveXlsxExcelView
+ * 	- bHiveStreamingExcelView: blue.hive.spring.web.view.BHiveStreamingExcelView
+ * 	- bHiveCsvView: blue.hive.spring.web.view.BHiveCsvView
  *
  * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  */

@@ -13,7 +13,7 @@ import com.fasterxml.jackson.datatype.joda.deser.LocalDateTimeDeserializer;
 import blue.hive.util.BHiveDateUtil;
 
 /**
- * Ablecoms Joda LocalDateTime Deserializer
+ * Blue Hive Joda LocalDateTime Deserializer
  * 
  * http://wiki.fasterxml.com/JacksonFAQDateHandling
  * http://www.baeldung.com/jackson-serialize-dates

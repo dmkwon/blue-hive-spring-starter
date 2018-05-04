@@ -23,12 +23,10 @@ public class BHiveExcelView extends AbstractExcelView {
 
 		BHiveExcelCommand command = (BHiveExcelCommand)model.get(BHiveExcelCommand.MODEL_KEY);
 		if(command == null) {
-			logger.error("AbleExcelCommand cannot found at Model");
+			logger.error("BHiveExcelCommand cannot found at Model");
 			throw new BHiveRuntimeException("엑셀파일 생성에 실패하였습니다.");
 		}
 
 		command.buildExcelDocument(workbook, request, response);
-
 	}
-
 }

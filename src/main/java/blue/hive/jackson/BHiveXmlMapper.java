@@ -97,11 +97,11 @@ public class BHiveXmlMapper extends XmlMapper implements Externalizable  {
 	}
 
 	private void registerCustomModules() {
-		//SimpleModule module = new SimpleModule("Ablecoms HTML XSS Serializer", new Version(1, 0, 0, "FINAL"));
-		SimpleModule module = new SimpleModule("Ablecoms HTML XSS Serializer");
+		//SimpleModule module = new SimpleModule("blue hive HTML XSS Serializer", new Version(1, 0, 0, "FINAL"));
+		SimpleModule module = new SimpleModule("blue hive HTML XSS Serializer");
 
 		//JS에 Json을 내려보낼때 JS가 깨지지 않게 포매팅
-		//module.addSerializer(new AbleJsonHtmlXssSerializer());
+		//module.addSerializer(new BHiveJsonHtmlXssSerializer());
 
 		//Joda LocalDateTime Deserializer - 대부분의 날짜형식을 다 받아줌...
 		module.addDeserializer(LocalDateTime.class, new BHiveLocalDateTimeDeserialiser());

@@ -13,7 +13,7 @@ import org.apache.commons.lang3.ArrayUtils;
 import org.springframework.util.StringUtils;
 
 /**
- * Ablecoms TeeHttpServletResponse. Logback Access TeeHttpServletResponse 소스 참고
+ * Blue Hive TeeHttpServletResponse. Logback Access TeeHttpServletResponse 소스 참고
  *
  * @author DongMan Kwon <a href="mailto:dmkwon@intellicode.co.kr">dmkwon@intellicode.co.kr</a>
  */

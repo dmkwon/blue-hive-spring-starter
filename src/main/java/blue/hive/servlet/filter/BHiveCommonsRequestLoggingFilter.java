@@ -94,7 +94,7 @@ public class BHiveCommonsRequestLoggingFilter extends CommonsRequestLoggingFilte
 				this.patterns.add(pattern);
 			}
 		}
-		logger.debug("###### AbleCommonsRequestLoggingFilter - patterns: " + this.patterns);
+		logger.debug("###### BHiveCommonsRequestLoggingFilter - patterns: " + this.patterns);
 	}
 
 	@Override
